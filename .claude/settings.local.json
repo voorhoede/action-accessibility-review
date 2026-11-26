@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.w3.org)",
+      "WebSearch",
+      "WebFetch(domain:html.spec.whatwg.org)",
+      "WebFetch(domain:docs.deque.com)",
+      "WebFetch(domain:dequeuniversity.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:webaim.org)",
+      "WebFetch(domain:technology.blog.gov.uk)",
+      "mcp__axe-mcp-server__analyze",
+      "WebFetch(domain:pandoc.org)"
+    ]
+  }
+}
