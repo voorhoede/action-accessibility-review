@@ -1,0 +1,183 @@
+/* Styles for report.html, built by pandoc. Also used when printing to PDF. */
+
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --accent: #0b5cad;
+  --border: #ccc;
+  --code-bg: #f4f4f4;
+}
+
+html {
+  color: var(--text);
+  background: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Title block from -M title */
+#title-block-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Table of contents from --toc */
+#TOC {
+  border: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+#TOC ul {
+  padding-left: 1.25rem;
+}
+
+/* With --shift-heading-level-by=1: h2 = file, h3 = component, h4 = issue */
+h2 {
+  font-size: 1.75rem;
+  margin-top: 3rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--text);
+}
+
+h3 {
+  font-size: 1.375rem;
+  margin-top: 2.5rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+  margin-top: 2rem;
+}
+
+/* Issue: <section class="level4"> from --section-divs. Colour comes from the
+   .severity-* div that severity.lua puts around the severity line.
+   Only sections with a severity line are issues; intro headings are not. */
+section.level4:has(> .severity) {
+  --sev: #6b6b6b;
+  --sev-bg: #f0f0f0;
+  border-left: 4px solid var(--sev);
+  padding: 0.25rem 0 0.25rem 1rem;
+  margin: 2.5rem 0;
+}
+
+section.level4:has(> .severity-blocker)  { --sev: #1a1a1a; --sev-bg: #ffd6d6; }
+section.level4:has(> .severity-critical) { --sev: #6a1b9a; --sev-bg: #f3e5f5; }
+section.level4:has(> .severity-serious)  { --sev: #c62828; --sev-bg: #fdecea; }
+section.level4:has(> .severity-moderate) { --sev: #b85c00; --sev-bg: #fff1e0; }
+section.level4:has(> .severity-minor)    { --sev: #1565c0; --sev-bg: #e3f0fb; }
+
+section.level4 > h4 {
+  margin-top: 0;
+}
+
+.severity strong {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  background: var(--sev-bg);
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--border);
+  color: var(--muted);
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  padding: 0.1em 0.25em;
+}
+
+pre {
+  background: var(--code-bg);
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  html {
+    font-size: 11pt;
+  }
+
+  body {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* Each markdown file starts on a new page */
+  h2 {
+    break-before: page;
+  }
+
+  /* Start the Introduction right below the title */
+  #introduction > h2 {
+    break-before: auto;
+  }
+
+  h2, h3, h4 {
+    break-after: avoid;
+  }
+
+  pre, blockquote, .severity {
+    break-inside: avoid;
+  }
+  /* Keep each issue together; issues longer than a page still split */
+  section.level4 {
+    break-inside: avoid;
+  }
+
+  /* Keep the "Located in:" line with the component's first issue */
+  section.level3 > p:first-of-type {
+    break-after: avoid;
+  }
+
+  /* Fit the table of contents on one page */
+  #table-of-contents > h2 {
+    margin-top: 0;
+  }
+
+  #TOC {
+    padding-block: 0;
+    line-height: 1.35;
+  }
+
+  /* Show link targets on paper; skip internal TOC links */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  #TOC a::after {
+    content: none;
+  }
+
+  /* Keep backgrounds of code and severity labels when printing */
+  * {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

@@ -1,0 +1,2661 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.14" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Accessibility review shop-staging.action.com</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+em, em em em, em em em em em {
+font-style: italic;
+}
+em em, em em em em {
+font-style: normal;
+}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+@media print {
+html {
+color-scheme: light only;
+}
+html, body, pre, code {
+background-color: transparent;
+}
+body, a, a:visited, blockquote {
+color: black;
+}
+pre, code {
+padding: 0;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+} </style>
+  <style type="text/css">
+:root {
+--text: #1a1a1a;
+--muted: #555;
+--accent: #0b5cad;
+--border: #ccc;
+--code-bg: #f4f4f4;
+}
+html {
+color: var(--text);
+background: #fff;
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+font-size: 100%;
+line-height: 1.5;
+}
+body {
+max-width: 48rem;
+margin: 0 auto;
+padding: 2rem 1.5rem;
+}
+a {
+color: var(--accent);
+}
+
+#title-block-header h1 {
+font-size: 2.25rem;
+margin-bottom: 2rem;
+}
+
+#TOC {
+border: 1px solid var(--border);
+padding: 1rem 1.5rem;
+margin-bottom: 3rem;
+}
+#TOC ul {
+padding-left: 1.25rem;
+}
+
+h2 {
+font-size: 1.75rem;
+margin-top: 3rem;
+padding-bottom: 0.25rem;
+border-bottom: 2px solid var(--text);
+}
+h3 {
+font-size: 1.375rem;
+margin-top: 2.5rem;
+}
+h4 {
+font-size: 1.125rem;
+margin-top: 2rem;
+}
+
+section.level4:has(> .severity) {
+--sev: #6b6b6b;
+--sev-bg: #f0f0f0;
+border-left: 4px solid var(--sev);
+padding: 0.25rem 0 0.25rem 1rem;
+margin: 2.5rem 0;
+}
+section.level4:has(> .severity-blocker) { --sev: #1a1a1a; --sev-bg: #ffd6d6; }
+section.level4:has(> .severity-critical) { --sev: #6a1b9a; --sev-bg: #f3e5f5; }
+section.level4:has(> .severity-serious) { --sev: #c62828; --sev-bg: #fdecea; }
+section.level4:has(> .severity-moderate) { --sev: #b85c00; --sev-bg: #fff1e0; }
+section.level4:has(> .severity-minor) { --sev: #1565c0; --sev-bg: #e3f0fb; }
+section.level4 > h4 {
+margin-top: 0;
+}
+.severity strong {
+display: inline-block;
+padding: 0.125rem 0.5rem;
+background: var(--sev-bg);
+}
+blockquote {
+margin: 1rem 0;
+padding: 0.5rem 1rem;
+border-left: 4px solid var(--border);
+color: var(--muted);
+}
+code {
+font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+font-size: 0.9em;
+background: var(--code-bg);
+padding: 0.1em 0.25em;
+}
+pre {
+background: var(--code-bg);
+padding: 1rem;
+overflow-x: auto;
+}
+pre code {
+padding: 0;
+}
+@media print {
+@page {
+size: A4;
+margin: 2cm;
+}
+html {
+font-size: 11pt;
+}
+body {
+max-width: none;
+padding: 0;
+}
+
+h2 {
+break-before: page;
+}
+
+#introduction > h2 {
+break-before: auto;
+}
+h2, h3, h4 {
+break-after: avoid;
+}
+pre, blockquote, .severity {
+break-inside: avoid;
+}
+
+section.level4 {
+break-inside: avoid;
+}
+
+section.level3 > p:first-of-type {
+break-after: avoid;
+}
+
+#table-of-contents > h2 {
+margin-top: 0;
+}
+#TOC {
+padding-block: 0;
+line-height: 1.35;
+}
+
+a[href^="http"]::after {
+content: " (" attr(href) ")";
+font-size: 0.85em;
+word-break: break-all;
+}
+#TOC a::after {
+content: none;
+}
+
+* {
+print-color-adjust: exact;
+-webkit-print-color-adjust: exact;
+}
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Accessibility review shop-staging.action.com</h1>
+</header>
+<!--
+  Build: pandoc report.md -f gfm -s --shift-heading-level-by=1 --section-divs --lua-filter=severity.lua --lua-filter=toc.lua --css report.css --embed-resources -M title="Accessibility review shop-staging.action.com" -M lang=en -o report.html
+-->
+
+<section id="introduction" class="level2">
+<h2>Introduction</h2>
+<p>This document represents the findings of the accessibility review
+from 16 November - 26 November 2026.</p>
+<p>This review is done according to the WCAG 2.1 level AA
+specification.</p>
+<section id="technologies-used" class="level3">
+<h3>Technologies used</h3>
+<p>During this review the following techniques and technologies have
+been used.</p>
+<ul>
+<li>Axe DevTools Pro Chrome extension (v4.140.0) using Axe Core version
+4.13.0</li>
+<li>Google Chrome (v157.0.8103.79)</li>
+<li>Mozilla Firefox Developer Edition (v161.0b2)</li>
+<li>VoiceOver on macOS (v27.2.1 (26B131))</li>
+<li>Claude Code</li>
+</ul>
+<p>For each page reviewed a full page scan is performed with Axe
+DevTools (the raw <code>.json</code> files of these reports are attached
+in this review). These reports have been converted to a human readable
+format with Claude Code. Recurring issues were grouped to avoid
+repetition.</p>
+<p>Each page and flow were then manually reviewed with a keyboard and
+screenreader. Issues that have been found are grouped as components in
+an attempt to mimic coding style.</p>
+<p>The final report is a combination of the issues found through the Axe
+DevTools and manual testing, grouped per component per page.</p>
+</section>
+<section id="pages-reviewed" class="level3">
+<h3>Pages reviewed</h3>
+<p>The <code>Pages:</code> line of an issue uses the page names below.
+Pages without an axe report either did not have any issues reported, or
+were a variation of a page that has a report.</p>
+<p>According to the scope document, these are the pages that have been
+reviewed. The scope document mentions user flows, each userflow could be
+tested within the set of these pages.</p>
+<table>
+<thead>
+<tr>
+<th>Page</th>
+<th>axe report (<code>.json</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl">Home</a></td>
+<td><code>shop-staging.action.com-home-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/c/wonen">Category
+(Wonen)</a></td>
+<td><code>shop-staging.action.com-gezellig-en-stijlvol-wonen-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/moment/herfst">Moment
+(Herfst)</a></td>
+<td><code>shop-staging.action.com-herfst-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/search?q=pannenset">Search</a></td>
+<td><code>shop-staging.action.com-search-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/search?q=pannenset">Search
+dialog</a> (opened from the header)</td>
+<td><code>shop-staging.action.com-search-dialog-2026-11-19.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/p/8717807708603/tafellamp-jute">Product
+detail (Tafellamp jute)</a></td>
+<td><code>shop-staging.action.com-tafellamp-jute-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/p/8717796060591/topper-traagschuim-matras-90-x-200">Product
+detail (Topper traagschuim)</a></td>
+<td><code>shop-staging.action.com-topper-traagschuim-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/p/5054061475241/contactgrill-xl">Product
+detail (Contactgrill XL)</a></td>
+<td><code>shop-staging.action.com-contactgrill-xl-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/p/8720604885811/vloerkleed-tenerife-taupe">Product
+detail (Vloerkleed Tenerife taupe)</a></td>
+<td>Variation of Product detail</td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/p/8720168447203/mgo-bijzettafel">Product
+detail (MGO bijzettafel)</a></td>
+<td>Variation of Product detail</td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/winkelwagen">Cart</a></td>
+<td><code>shop-staging.action.com-bestel-overzicht-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/winkelwagen">Cart
+(empty)</a> (no products in the cart)</td>
+<td><code>shop-staging.action.com-empty-shopping-card-2026-11-26.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/checkout">Checkout</a></td>
+<td><code>shop-staging.action.com-checkout-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/login">Login</a></td>
+<td>No issues found with Axe DevTools</td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/forgot-password">Forgot
+password</a></td>
+<td>No issues found with Axe DevTools</td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/register">Register</a></td>
+<td><code>shop-staging.action.com-register-2026-11-26.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/algemene-voorwaarden">Algemene
+voorwaarden</a></td>
+<td><code>shop-staging.action.com-algemene-voorwaarden-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/cookie-statement">Cookie
+statement</a></td>
+<td><code>shop-staging.action.com-cookiestatement-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/privacy-statement">Privacy
+statement</a></td>
+<td><code>shop-staging.action.com-privacystatement-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/klantenservice">Klantenservice</a></td>
+<td><code>shop-staging.action.com-klantenservice-2026-11-16.json</code></td>
+</tr>
+<tr>
+<td><a href="https://shop-staging.action.com/nl-nl/deze-pagina-bestaat-niet">404</a></td>
+<td><code>shop-staging.action.com-404-2026-11-26.json</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="notes" class="level3">
+<h3>Notes</h3>
+<section id="impact-levels" class="level4">
+<h4>Impact levels</h4>
+<p>Each issue is marked with an impact level. These levels indicate the
+impact an issue has on the ability of someone trying to access the
+feature or content. These levels are taken from the Deque documentation
+page <a href="https://docs.deque.com/auditor/2.35/en/impact_levels">Key
+Concepts and Terms / Impact levels</a>. These levels are used by Axe
+Core in the automated reports. I used them in the hand reviewed issues
+as well.</p>
+<section id="blocker" class="level5">
+<h5>Blocker</h5>
+<p>Blocker impact issues are those issues that have very significant
+obstacles for people with disabilities. Users who depend on assistive
+technology are prevented from using the core content. Blocker impact
+issues should be addressed with the utmost priority as they prevent key
+experiences on core functionality from being completed.</p>
+</section>
+<section id="critical" class="level5">
+<h5>Critical</h5>
+<p>Critical impact issues are those issues that have significant
+obstacles for people with disabilities. Users who depend on assistive
+technology can get frustrated while trying to access the content. Some
+content that is inaccessible may make the organization vulnerable to
+legal action. This results in the issue preventing the website from
+being used successfully.</p>
+</section>
+<section id="serious" class="level5">
+<h5>Serious</h5>
+<p>This issue results in some barriers for individuals with disabilities
+but would not prevent them from accessing fundamental elements or
+content.</p>
+<p>Serious impact issues are those issues where users with disabilities
+encounter some obstacles as a result of this problem, but it does not
+prevent them from accessing fundamental components or content. Serious
+issues may make the organization vulnerable to legal action. Users must
+ensure to address serious issues once they have taken care of critical
+issues.</p>
+</section>
+<section id="moderate" class="level5">
+<h5>Moderate</h5>
+<p>Moderate impact issues are those issues that result in lesser impact
+on users than serious issues. While your end-user may appreciate a fix
+or patch, it won&#39;t necessarily impact their ability to use or interact
+with the website.</p>
+</section>
+<section id="minor" class="level5">
+<h5>Minor</h5>
+<p>Minor impact issues are those issues that are like bugs that are
+difficult to replicate or occur intermittently. You can consider fixing
+these issues only if you find a low-risk solution.</p>
+</section>
+</section>
+<section id="wcag-vs-recommendation" class="level4">
+<h4>WCAG vs Recommendation</h4>
+<p>Not all issues found are a direct violation of a WCAG Success
+Criterion, but prevent users from interacting with a feature or content
+in some form. These issues are included and marked as Recommendation.
+Fixing these issues will improve the usability of the website.</p>
+</section>
+<section id="announcements" class="level4">
+<h4>Announcements</h4>
+<p>For a couple of issues the <strong>How to fix:</strong> section
+suggests the use of <code>role=&quot;status&quot;</code>. This method will only
+work when the <em>content</em> of the element is being updated. When the
+element is destroyed and recreated (which oftentimes happens in a React
+context) the announcement is still not being read.</p>
+</section>
+<section id="the-template-used-on-the-404-page" class="level4">
+<h4>The template used on the 404 page</h4>
+<p>While testing the 404 page, I noticed a difference in the page header
+and footer, the header and footer of the other pages in scope contain
+test id&#39;s which are not found on the 404. I made the assumption that the
+404 template is an older template. I did not review the page header and
+footer component from this page.</p>
+</section>
+</section>
+</section>
+<section id="conclusion-and-closing-thoughts" class="level2">
+<h2>Conclusion and closing thoughts</h2>
+<p>The website has a solid base when it comes to accessibility. Most
+issues are concentrated in a small number of shared components and
+patterns. A couple of issues will be difficult to manage since they rely
+on company colours. Changing them will be a challenge.</p>
+<p>Although the number of issues and affected components is relatively
+small, there are some areas with serious issues that need to be
+addressed.</p>
+<ul>
+<li><strong>State change announcements</strong>: Submitting a form or
+placing an item in the shopping cart does not get announced to
+screenreader users. While properly visible, these flows can feel very
+broken for screenreader users. Most of the issues with an impact of
+<strong>Blocker</strong> and <strong>Critical</strong> fall in this
+category.</li>
+<li><strong>Errors in forms</strong>: Errors are being generated when
+forms are not filled in properly. However because there is no
+programmatic connection between the errors and the form fields, these
+errors get lost.</li>
+<li><strong>Focus management</strong>: For keyboard users focus
+management is the area that needs to be improved. While not in many
+places, when it goes wrong, it is hard to recover from.</li>
+</ul>
+<p>The component with the potential to make the site better usable in
+general is the product card. It is reused across various pages and
+fixing its issues will gain a lot of usability improvements.</p>
+</section>
+<section id="table-of-contents" class="level2">
+<h2>Table of contents</h2>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction">Introduction</a>
+<ul>
+<li><a href="#technologies-used" id="toc-technologies-used">Technologies
+used</a></li>
+<li><a href="#pages-reviewed" id="toc-pages-reviewed">Pages
+reviewed</a></li>
+<li><a href="#notes" id="toc-notes">Notes</a></li>
+</ul></li>
+<li><a href="#conclusion-and-closing-thoughts" id="toc-conclusion-and-closing-thoughts">Conclusion and closing
+thoughts</a></li>
+<li><a href="#shared-components" id="toc-shared-components">Shared
+components</a>
+<ul>
+<li><a href="#header--search-bar" id="toc-header--search-bar">Header –
+search bar</a></li>
+<li><a href="#header--shopping-cart-link" id="toc-header--shopping-cart-link">Header – shopping cart link</a></li>
+<li><a href="#header--main-navigation" id="toc-header--main-navigation">Header – main navigation</a></li>
+<li><a href="#search-dialog" id="toc-search-dialog">Search
+dialog</a></li>
+<li><a href="#footer--newsletter-signup-region" id="toc-footer--newsletter-signup-region">Footer – newsletter signup
+region</a></li>
+<li><a href="#footer--veilig-winkelen-list" id="toc-footer--veilig-winkelen-list">Footer – Veilig winkelen
+list</a></li>
+<li><a href="#footer--award-links" id="toc-footer--award-links">Footer –
+award links</a></li>
+<li><a href="#footer--brand-statement-bar" id="toc-footer--brand-statement-bar">Footer – brand statement
+bar</a></li>
+<li><a href="#cookie-banner" id="toc-cookie-banner">Cookie
+banner</a></li>
+<li><a href="#usp-list--tooltip" id="toc-usp-list--tooltip">USP list –
+tooltip</a></li>
+<li><a href="#product-card" id="toc-product-card">Product card</a></li>
+<li><a href="#product-tag" id="toc-product-tag">Product tag</a></li>
+<li><a href="#price" id="toc-price">Price</a></li>
+<li><a href="#button" id="toc-button">Button</a></li>
+<li><a href="#form-field" id="toc-form-field">Form field</a></li>
+<li><a href="#pagination" id="toc-pagination">Pagination</a></li>
+<li><a href="#cms-markdown" id="toc-cms-markdown">CMS markdown</a></li>
+</ul></li>
+<li><a href="#page-specific-components" id="toc-page-specific-components">Page-specific components</a>
+<ul>
+<li><a href="#home--hero-image" id="toc-home--hero-image">Home – hero
+image</a></li>
+<li><a href="#home--countdown-banner-new-deals-block" id="toc-home--countdown-banner-new-deals-block">Home – countdown banner
+(New Deals block)</a></li>
+<li><a href="#product-grid--filters" id="toc-product-grid--filters">Product grid – filters</a></li>
+<li><a href="#product-details" id="toc-product-details">Product
+details</a></li>
+<li><a href="#product-details--variation-chooser" id="toc-product-details--variation-chooser">Product details – variation
+chooser</a></li>
+<li><a href="#product-details--duurzamere-keuze-info-block" id="toc-product-details--duurzamere-keuze-info-block">Product details –
+Duurzamere keuze info block</a></li>
+<li><a href="#product-details--images-carousel" id="toc-product-details--images-carousel">Product details – images
+carousel</a></li>
+<li><a href="#cart--winkelmand-item" id="toc-cart--winkelmand-item">Cart
+– winkelmand item</a></li>
+<li><a href="#checkout" id="toc-checkout">Checkout</a></li>
+<li><a href="#checkout--delivery-address" id="toc-checkout--delivery-address">Checkout – delivery address</a></li>
+<li><a href="#checkout--payment-method" id="toc-checkout--payment-method">Checkout – payment method</a></li>
+<li><a href="#login-form" id="toc-login-form">Login form</a></li>
+<li><a href="#forgot-password-form" id="toc-forgot-password-form">Forgot
+password form</a></li>
+<li><a href="#algemene-voorwaarden--table-of-contents" id="toc-algemene-voorwaarden--table-of-contents">Algemene voorwaarden –
+table of contents</a></li>
+<li><a href="#cookie-statement--cookie-declaration" id="toc-cookie-statement--cookie-declaration">Cookie statement – cookie
+declaration</a></li>
+<li><a href="#404-page" id="toc-404-page">404 page</a></li>
+</ul></li>
+</ul>
+</nav>
+</section>
+<section id="shared-components" class="level2">
+<h2>Shared components</h2>
+<section id="header--search-bar" class="level3">
+<h3>Header – search bar</h3>
+<p>Located in: <code>[data-testid=&quot;desktop-search&quot;]</code></p>
+<section id="focus-jumps-after-closing-the-search-banner" class="level4">
+<h4>Focus jumps after closing the search banner</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When the search bar is being used, a dialog replaces the initial
+component. When that dialog is closed, the focus state is lost and moves
+to <code>&lt;body&gt;</code>. The next tab press continues from the end
+of the page. The user expects to continue tabbing through the page from
+the search button, but nothing indicates that the focus has been
+moved.</p>
+<p><strong>How to fix:</strong> After closing the search dialog, bring
+the focus back to the button.</p>
+<blockquote>
+<p><strong>Note</strong>: when the user closes the dialog with
+<code>Escape</code>, the focus stays on the now hidden input field. The
+fix is the same.</p>
+</blockquote>
+</section>
+<section id="aria-role-should-be-appropriate-for-the-element" class="level4">
+<h4>ARIA role should be appropriate for the element</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Best Practice</strong></p>
+</div>
+<p>Source: manual review, axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role"><code>aria-allowed-role</code></a>)<br />
+Pages: Home, Category (Wonen), Moment (Herfst), Search, Product detail
+(Tafellamp jute, Topper traagschuim, Contactgrill XL), Cart, Cart
+(empty), Register, Algemene voorwaarden, Cookie statement, Privacy
+statement, Klantenservice</p>
+<p>The search field in the header looks like a form, but is a button
+that opens a dialog. The element is wrapped in a
+<code>&lt;form role=&quot;group&quot;&gt;</code>. Because of the
+<code>role=&quot;group&quot;</code> the semantics of the form are lost. The search
+icon has a label of <code>Zoeken</code>, but is permanently disabled. A
+screenreader user would hear an unavailable &quot;Zoeken&quot; button. A user who
+uses voice control that would say: &quot;click Zoeken&quot; can not activate the
+dialog.</p>
+<p>axe DevTools reports the same element: &quot;Ensure role attribute has an
+appropriate value for the element&quot;.</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Search form &quot;Waar ben je naar op zoek?&quot;</strong></li>
+</ul>
+<p>axe DevTools: Fix any of the following: ARIA role group is not
+allowed for given element</p>
+<p><strong>How to fix:</strong></p>
+<ul>
+<li>Replace the <code>&lt;form role=&quot;group&quot;&gt;</code> element with a
+<code>&lt;search&gt;</code> element. So it will end up in the landmarks
+list.</li>
+<li>Put the search icon (with <code>aria-hidden=&quot;true&quot;</code>) inside
+the button</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">search</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;…&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;button&quot;</span><span class="ot"> aria-controls</span><span class="op">=</span><span class="st">&quot;search-dialog&quot;</span><span class="ot"> aria-haspopup</span><span class="op">=</span><span class="st">&quot;dialog&quot;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ot">          data-testid</span><span class="op">=</span><span class="st">&quot;search-flyout-input-button&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Waar ben je naar op zoek?<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">svg</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="ot"> data-testid</span><span class="op">=</span><span class="st">&quot;SearchMagnifyingGlass&quot;</span><span class="dt">&gt;</span>…<span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">search</span><span class="dt">&gt;</span></span></code></pre></div>
+<blockquote>
+<p><strong>Reviewer note:</strong> <code>&lt;form&gt;</code> does not
+allow <code>role=&quot;group&quot;</code>. Since this is the site search,
+<code>role=&quot;search&quot;</code> is allowed on <code>&lt;form&gt;</code> and
+exposes it as a search landmark. Alternatively remove the role. See <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> (allowed roles
+for <code>form</code>: none, presentation or search).</p>
+</blockquote>
+</section>
+</section>
+<section id="header--shopping-cart-link" class="level3">
+<h3>Header – shopping cart link</h3>
+<p>Located in: <code>[data-testid=&quot;cart-button&quot;]</code></p>
+<section id="items-in-cart-counter-is-not-part-of-the-button-label" class="level4">
+<h4>Items in cart counter is not part of the button label</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The item count badge is not included in the label of the link, it is
+only visually laid on top of it. Although a screenreader user can get to
+the number, there is no relationship to the link, and thus the
+relationship can not be established.</p>
+<p><strong>How to fix:</strong> Include the number in the
+<code>aria-label</code> like so
+<code>aria-label=&quot;Winkelwagen, 3 artikelen&quot;</code></p>
+</section>
+</section>
+<section id="header--main-navigation" class="level3">
+<h3>Header – main navigation</h3>
+<p>Located in: <code>[data-testid=&quot;desktop-navigation&quot;]</code></p>
+<section id="focus-indicator-is-partly--largely-hidden-on-each-link" class="level4">
+<h4>Focus indicator is partly / largely hidden on each link</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.7 Focus Visible (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When tabbing through the list, the focus indicator is clipped off.
+Especially the first and last item suffer from this because they only
+get the indicator on one edge. Making it impossible to see what item has
+focus.</p>
+<p><strong>How to fix (2 suggestions):</strong></p>
+<ul>
+<li>Suggestion 1: Provide vertical and horizontal margin to the
+<code>&lt;a&gt;</code> element (4px)</li>
+<li>Suggestion 2: Provide a negative <code>outline-offset</code> of
+<code>2px</code> and a <code>padding-inline</code> of <code>4px</code>
+to the <code>&lt;a&gt;</code> element</li>
+</ul>
+</section>
+<section id="focus-jumps-after-closing-the-mobile-menu" class="level4">
+<h4>Focus jumps after closing the mobile menu</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When the mobile menu is opened, the menu covers the whole viewport.
+When the menu is closed, the focus state is lost and moves to
+<code>&lt;body&gt;</code>. The next tab press continues from the end of
+the page. The user expects to continue tabbing through the page from the
+menu trigger, but nothing indicates that the focus has been moved.</p>
+<p><strong>How to fix:</strong> After closing the mobile menu, bring the
+focus back to opening button.</p>
+</section>
+<section id="contrast-of-focus-indicator-in-themas-submenu-is-poor" class="level4">
+<h4>Contrast of focus indicator in Thema&#39;s submenu is poor</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The focus indicator of the menu items under the <code>Thema&#39;s</code>
+submenu is poor. This focus ring is set against a large image which
+makes it hard to spot.</p>
+<p>On the mobile viewport this also happens where the tiles are in the
+mobile menu</p>
+<p><strong>How to fix (2 suggestions):</strong></p>
+<ul>
+<li>Suggestion 1: Give the focus indicator an offset via
+<code>outline-offset: 2px</code></li>
+<li>Suggestion 2: Make the focus indicator thicker</li>
+</ul>
+</section>
+</section>
+<section id="search-dialog" class="level3">
+<h3>Search dialog</h3>
+<p>Located in: <code>[data-testid=&quot;search-flyout-dialog&quot;]</code></p>
+<section id="buttons-must-have-discernible-text" class="level4">
+<h4>Buttons must have discernible text</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 4.1.2 Name, Role, Value (level
+A)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/button-name"><code>button-name</code></a>)<br />
+Pages: Search dialog</p>
+<p>Ensure buttons have discernible text</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Clear search button (X icon), shown once text is typed in
+<code>[data-testid=&quot;search-flyout-input-field&quot;]</code></strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>Element does not have inner text that is visible to screen
+readers</li>
+<li>aria-label attribute does not exist or is empty</li>
+<li>aria-labelledby attribute does not exist, references elements that
+do not exist or references elements that are empty</li>
+<li>Element has no title attribute</li>
+<li>Element does not have an implicit (wrapped)
+<code>&lt;label&gt;</code></li>
+<li>Element does not have an explicit <code>&lt;label&gt;</code></li>
+<li>Element&#39;s default semantics were not overridden with role=&quot;none&quot; or
+role=&quot;presentation&quot;</li>
+</ul>
+<blockquote>
+<p><strong>Reviewer note:</strong> Suggestion:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Verwijder zoekopdracht<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">&lt;</span><span class="kw">svg</span><span class="dt">&gt;</span>...<span class="dt">&lt;/</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div>
+</blockquote>
+</section>
+<section id="close-button-is-announced-wrong" class="level4">
+<h4>Close button is announced wrong</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.5.3 Label in Name (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The button with the visual label <strong>Sluiten X</strong> is
+announced as <strong>Verwijder zoekopdracht</strong>. The information
+screenreader users receive is different from the information sighted
+users see. And the <strong>Verwijder zoekopdracht</strong> is not the
+action performed when the button is clicked. When the button is clicked,
+the modal closes completely and in that process indeed removing the
+search query. But to get to the previous state, the user has to open the
+dialog again. The name <strong>Verwijder zoekopdracht</strong> is a
+better fit for the <code>X</code> button inside the
+<code>&lt;form&gt;</code> element.</p>
+<p><strong>How to fix:</strong> Use
+<code>aria-label=&quot;Sluiten zoekvenster&quot;</code> or similar wording</p>
+</section>
+<section id="the-page-behind-the-dialog-is-reachable-for-a-screenreader" class="level4">
+<h4>The page behind the dialog is reachable for a screenreader</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The dialog is opened as a non-modal dialog. Although there is a
+keyboard trap, the virtual cursor of a screenreader can still read and
+interact with the dimmed page. This can lead to confusion. Especially on
+mobile this is an issue where users move by swiping. Once the cursor
+enters the hidden page, the user can not track its location because of
+the dialog still open.</p>
+<p><strong>How to fix:</strong> Open the dialog via
+<code>showModal()</code>, that makes the background inert and handles
+Escape natively</p>
+</section>
+<section id="the-whole-search-modal-gets-announced-when-searching" class="level4">
+<h4>The whole search modal gets announced when searching</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When the user searches, all the content in the modal get announced.
+Although it is good to announce changes when search results or popular
+search terms change, the way it is set up now, the provided information
+makes the actual change very hard to hear.</p>
+<p><strong>How to fix:</strong> The <code>aria-live=&quot;polite&quot;</code>
+placed on <code>div[data-testid=&quot;search-suggestions&quot;]</code> should be
+removed. Instead the text indicating the number of results should be
+announced. That informs the user that there are changes. The user can
+then browse further through the dialog to find them</p>
+</section>
+<section id="visual-headings-are-not-marked-up-as-such" class="level4">
+<h4>Visual headings are not marked up as such</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The dialog has no headings although the text is defining the content
+that follows and / or is styled like a heading. Texts like; &quot;Eerder
+gezocht&quot;, &quot;Populaire zoektermen&quot;, &quot;Helaas, we konden geen resultaten
+vinden voor &#39;...&#39;&quot; and &quot;Probeer dit eens:&quot; are candidate to become
+headings.</p>
+<p><strong>How to fix:</strong> Use <code>&lt;h2&gt;</code> elements for
+these texts</p>
+</section>
+<section id="delete-buttons-all-have-the-same-name" class="level4">
+<h4>Delete buttons all have the same name</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>Each recent search item has a button <code>X</code> with the name
+&quot;Verwijderen&quot;. In a list of buttons it is not clear which button deletes
+what</p>
+<p><strong>How to fix:</strong> use
+<code>aria-label=&quot;Verwijder &#39;lamp&#39; uit eerder gezocht&quot;</code>.</p>
+</section>
+<section id="the-bekijk-alle-button-label-can-be-improved" class="level4">
+<h4>The <em>Bekijk alle</em> button label can be improved</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The <em>Bekijk alle</em> label is visually connected to the results.
+But for screenreader users, the label can be improved</p>
+<p><strong>How to fix:</strong> include a hidden label like so:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="dt">&gt;</span>Bekijk alle <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>resultaten<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+<section id="aria-role-should-be-appropriate-for-the-element-1" class="level4">
+<h4>ARIA role should be appropriate for the element</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/aria-allowed-role"><code>aria-allowed-role</code></a>)<br />
+Pages: Search dialog</p>
+<p>Ensure role attribute has an appropriate value for the element</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Search form &quot;Zoeken&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: ARIA role
+group is not allowed for given element</p>
+<blockquote>
+<p><strong>Reviewer note:</strong> <code>&lt;form&gt;</code> does not
+allow <code>role=&quot;group&quot;</code>. Since this is the site search,
+<code>role=&quot;search&quot;</code> is allowed on <code>&lt;form&gt;</code> and
+exposes it as a search landmark. Alternatively remove the role. See <a href="https://www.w3.org/TR/html-aria/">ARIA in HTML</a> (allowed roles
+for <code>form</code>: none, presentation or search).</p>
+</blockquote>
+</section>
+</section>
+<section id="footer--newsletter-signup-region" class="level3">
+<h3>Footer – newsletter signup region</h3>
+<p>Located in: <code>[data-testid=&quot;shop-newsletter-section&quot;]</code></p>
+<section id="non-descriptive-label-of-the-region" class="level4">
+<h4>Non descriptive label of the region</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The label of the region is defined in the <code>aria-label</code> as
+<code>Nu inschrijven</code>. That phrase does not describe that it is
+about the newsletter.</p>
+<p><strong>How to fix:</strong> A suggestion:
+<code>aria-label=&quot;Inschrijven op de nieuwsbrief&quot;</code>. An alternative
+would be to let the region be described by its heading:
+<code>&lt;section aria-labelledby=&quot;shop-footer-newsletter-title&quot;&gt;...&lt;/section&gt;</code>.</p>
+</section>
+<section id="non-descriptive-label-of-the-signup-button" class="level4">
+<h4>Non descriptive label of the signup button</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The button on its own does not provide enough context.</p>
+<p><strong>How to fix:</strong> include a visually hidden text to
+augment the description like so:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Nu inschrijven <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>op de nieuwsbrief<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+</section>
+<section id="footer--veilig-winkelen-list" class="level3">
+<h3>Footer – Veilig winkelen list</h3>
+<p>Located in: <code>[data-testid=&quot;safe-shopping-section&quot;]</code></p>
+<section id="region-label-is-in-english" class="level4">
+<h4>Region label is in English</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 3.1.2 Language of Parts (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The region is named &quot;Safe Shopping&quot; via <code>aria-label</code>,
+while the page is in Dutch. Screenreaders will pronounce the label with
+a Dutch voice.</p>
+<p><strong>How to fix:</strong> Use the existing <code>&lt;h2&gt;</code>
+as a label via <code>aria-labelledby</code> instead of
+<code>aria-label</code>. Using <code>lang=&quot;en&quot;</code> does not work
+since that marks the whole element as <code>en</code>.</p>
+</section>
+<section id="explicit-role-is-missing" class="level4">
+<h4>Explicit role is missing</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>On the <code>&lt;ul&gt;</code> element, there is no explicit
+<code>role</code> of <code>list</code>. But the <code>list-style</code>
+is set to <code>none</code>. In Safari that means that the list loses
+its semantics completely.</p>
+<p><strong>How to fix:</strong> Add <code>role=&quot;list&quot;</code> to the
+<code>&lt;ul&gt;</code></p>
+</section>
+<section id="text-in-logo-is-missing-in-alt-attribute" class="level4">
+<h4>Text in logo is missing in alt attribute</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 1.1.1 Non-text Content (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The Thuiswinkel waarborg image has an alt text of
+<code>Thuiswinkel</code>. The word <code>waarborg</code> is included in
+the image, but missing in the alt text.</p>
+<p>The iDeal image has an alt text of <code>iDeal</code>. The word
+<code>wero</code> is included in the image but missing in the alt
+text</p>
+<p><strong>How to fix:</strong> Add the full text in the
+<code>alt</code> attribute <code>alt=&quot;iDeal | Wero&quot;</code> and
+<code>alt=&quot;Thuiswinkel waarborg&quot;</code></p>
+</section>
+</section>
+<section id="footer--award-links" class="level3">
+<h3>Footer – award links</h3>
+<p>Located in: <code>[data-testid=&quot;award-link-section&quot;]</code></p>
+<section id="region-label-is-in-english-1" class="level4">
+<h4>Region label is in English</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The region is named &quot;Award links&quot; via <code>aria-label</code>, while
+the page is in Dutch. Screenreaders will pronounce the label with a
+Dutch voice.</p>
+<p><strong>How to fix</strong>: Use a Dutch label like &quot;Onderscheidingen
+links&quot;. But since the word &quot;Award&quot; is relatively commonplace in Dutch,
+and might be preferable over &quot;Onderscheidingen&quot;. In that case, add a
+<code>&lt;h2 id=&quot;award-links-label&quot; class=&quot;sr-only&quot; lang=&quot;en&quot;&gt;Award links&lt;/h2&gt;</code>
+in the region. Then use the <code>id</code> of that
+<code>&lt;h2&gt;</code> as value in <code>aria-labelledby</code> on the
+region instead of <code>aria-label</code></p>
+</section>
+</section>
+<section id="footer--brand-statement-bar" class="level3">
+<h3>Footer – brand statement bar</h3>
+<p>Located in:
+<code>[data-testid=&quot;shop-footer-brand-statement&quot;]</code></p>
+<section id="animation-can-not-be-paused" class="level4">
+<h4>Animation can not be paused</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.2.2 Pause, Stop, Hide (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>On a mobile screen displays an animation that starts on its own, can
+not be paused or stopped and runs forever. The motion distracts people
+with attention or reading disabilities from the products around it. The
+motion is so fast, users who rely on magnification have too short a time
+to read the sentences.</p>
+<p><strong>How to fix:</strong> The best fix would be to show the three
+sentences stacked on top of each other. If the rotation needs to stay,
+include a pause / stop button or stop the rotation after 5 seconds.</p>
+</section>
+<section id="all-page-content-should-be-contained-by-landmarks" class="level4">
+<h4>All page content should be contained by landmarks</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/region"><code>region</code></a>)<br />
+Pages: Checkout</p>
+<p>Ensure all page content is contained by landmarks</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Brand statement &quot;Uniek online assortiment in de
+webshop&quot;</strong></li>
+<li><strong>Brand statement &quot;Bezorgd binnen 3 werkdagen&quot;</strong></li>
+<li><strong>Brand statement &quot;Elke maandag om 12.00 uur nieuwe
+deals&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Some page
+content is not contained by landmarks</p>
+<blockquote>
+<p><strong>Reviewer note:</strong> This issue is specific to the brand
+statement bar in the checkout page. The footer element
+(<code>[data-testid=&quot;shop-footer-usp-bar&quot;]</code>) is marked up as a
+<code>&lt;div&gt;</code>. Make it a <code>&lt;footer&gt;</code>
+instead.</p>
+</blockquote>
+</section>
+</section>
+<section id="cookie-banner" class="level3">
+<h3>Cookie banner</h3>
+<section id="primary-buttons-accepteren-and-selectie-toestaan-text-contrast-is-too-low" class="level4">
+<h4>Primary buttons &quot;Accepteren&quot; and &quot;Selectie toestaan&quot; text contrast
+is too low</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The button text lack enough contrast. The contrast of the white text
+on the orange background is 2.49:1. It needs to be 4.5:1.</p>
+<p><strong>How to fix:</strong> Use a darker orange.</p>
+</section>
+<section id="altijd-actief-text-contrast-is-too-low" class="level4">
+<h4>&quot;Altijd actief&quot; text contrast is too low</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The green on white contrast is 4.00:1. It needs to be 4.5:1</p>
+<p><strong>How to fix:</strong> Use a darker green</p>
+</section>
+<section id="focus-is-lost-when-the-modal-is-closed" class="level4">
+<h4>Focus is lost when the modal is closed</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When the modal is closed, the focus is lost. By default it moves back
+to the <code>&lt;body&gt;</code>. The focus should return to the trigger
+that opened the modal. Since this modal is opened by default. That
+trigger does not exist.</p>
+<p><strong>How to fix:</strong> move the focus to the skiplink when the
+modal is closed. To make sure the skiplink won&#39;t be visible to users
+that do not use a keyboard, change the visible state of the skiplink
+from <code>:focus</code> to <code>:focus-visible</code>. To do that
+switch <code>focus-within:not-sr-only</code> into
+<code>has-[:focus-visible]:not-sr-only</code> in the skiplink (assumed
+Tailwind v4).</p>
+</section>
+</section>
+<section id="usp-list--tooltip" class="level3">
+<h3>USP list – tooltip</h3>
+<p>Located in: <code>[data-testid=&quot;shop-generic-usp-tooltip&quot;]</code></p>
+<section id="buttons-must-have-discernible-text-1" class="level4">
+<h4>Buttons must have discernible text</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 4.1.2 Name, Role, Value (level
+A)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/button-name"><code>button-name</code></a>)<br />
+Pages: Cart, Product detail (Tafellamp jute, Topper traagschuim,
+Contactgrill XL)</p>
+<p>Ensure buttons have discernible text</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Info button for USP &quot;Wettelijke garantie minimaal 2
+jaar&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>Element does not have inner text that is visible to screen
+readers</li>
+<li>aria-label attribute does not exist or is empty</li>
+<li>aria-labelledby attribute does not exist, references elements that
+do not exist or references elements that are empty</li>
+<li>Element has no title attribute</li>
+<li>Element does not have an implicit (wrapped)
+<code>&lt;label&gt;</code></li>
+<li>Element does not have an explicit <code>&lt;label&gt;</code></li>
+<li>Element&#39;s default semantics were not overridden with role=&quot;none&quot; or
+role=&quot;presentation&quot;</li>
+</ul>
+</section>
+</section>
+<section id="product-card" class="level3">
+<h3>Product card</h3>
+<p>Located in: <code>[data-testid=&quot;product-card&quot;]</code></p>
+<section id="the-add-to-cart-button-is-nested-inside-the-card-link" class="level4">
+<h4>The add-to-cart button is nested inside the card link</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 4.1.2 Name, Role, Value (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The &quot;Plaats in winkelwagen&quot; button is inside the card link. The <a href="https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element">HTML
+content model of <code>a</code></a> says there must be &quot;no interactive
+content descendant&quot;. VoiceOver treats the link as a single element. A
+user can not add a product to the shopping cart via the card, they have
+to go to the product detail page first, which is a big detour.</p>
+<p><strong>How to fix:</strong> Move the button out of the link. The
+card pattern from the &quot;All content of the card is inside the link&quot; issue
+makes this possible: the link only wraps the title, and the button sits
+next to it.</p>
+</section>
+<section id="all-content-of-the-card-is-inside-the-link" class="level4">
+<h4>All content of the card is inside the link</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>All content of the card, including the title, subtitle and price, is
+inside one link. Screenreaders read the whole card as the link&#39;s name,
+which is long. Screenreader users who browse a list of links, or tab
+through the page, hear this long name for every card.</p>
+<p>Although this is not a direct violation, it severely hinders
+screenreader users, and leads to multiple additional issues. Heydon
+Pickering describes a solution in the <a href="https://inclusive-components.design/cards/">Cards</a> chapter of
+Inclusive Components.</p>
+<p><strong>How to fix:</strong> Wrap only the product title in the link,
+and use a pseudo-element on the link to make the whole card
+clickable.</p>
+</section>
+<section id="the-add-to-cart-button-does-not-provide-a-status-message" class="level4">
+<h4>The add-to-cart button does not provide a status message</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 4.1.3 Status Message (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When pressing the &quot;Plaats in winkelwagen&quot; button, only a visual
+loader indicator is being shown. The counter in the &quot;Winkelwagen&quot; button
+in the header is updated, but that button is often out of view. Because
+there is no status message provided, a screenreader user does not know
+that the action was successful and will probably attempt to re-add the
+item, resulting in multiple items being added.</p>
+<p>There <em>is</em> a message announced when the maximum amount of
+items is added. It is presented as a toast message which is also
+announced. So a mechanism for announcing the successful addition of an
+item could use that same feature</p>
+<p><strong>How to fix:</strong> Write a message (like &quot;MGO Bijzettafel
+toegevoegd aan winkelwagen&quot;) to a <code>role=&quot;status&quot;</code> region. See
+the <a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22">Using
+<code>role=status</code> to present status messages</a> Technique for an
+example.</p>
+</section>
+<section id="sustainability-tag-and-price-lose-their-text-once-moved-out-of-the-card-link" class="level4">
+<h4>Sustainability tag and price lose their text once moved out of the
+card link</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.1.1 Non-text Content (level A) / 1.3.1 Info
+and Relationships (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>This issue does not occur yet. It appears when the &#39;All content of
+the card is inside the link&#39; issue is fixed as suggested: the
+sustainability tag and the large price no longer live inside an element
+with a role. The containing span has a default role of
+<code>generic</code>. ARIA 1.2 forbids naming the <code>generic</code>
+role, so screenreaders will not pick up the name.</p>
+<p><strong>How to fix:</strong> On the elements with
+<code>aria-label=&quot;Duurzaamheid&quot;</code> add <code>role=&quot;img&quot;</code>. For
+the price, see the Price component issue</p>
+</section>
+<section id="the-title-is-repeated-three-times-in-the-link" class="level4">
+<h4>The title is repeated three times in the link</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The name of an item is repeated 3 times in the card label. Because
+all the content of the card is inside the <code>&lt;a&gt;</code>
+element, all the containing content is being part of that name. The card
+has the name of the item as text, and twice as <code>alt</code> on an
+image.</p>
+<p><strong>How to fix:</strong> Fix the
+<code>All content of the card is inside the link</code> issue</p>
+</section>
+<section id="the-product-title-is-a-span-not-a-heading" class="level4">
+<h4>The product title is a <code>&lt;span&gt;</code> not a heading</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>If the product title would be a heading, the list of items could be
+navigated through the heading list, <a href="https://webaim.org/projects/screenreadersurvey10/#finding">which
+most of the screenreader users use as primary way of navigation</a></p>
+<p><strong>How to fix:</strong> (after the content is removed from the
+link) wrap the <code>&lt;a&gt;</code> element inside a
+<code>&lt;h3&gt;</code>. Make sure that the heading level used is
+appropriate for the context in which it is used</p>
+</section>
+</section>
+<section id="product-tag" class="level3">
+<h3>Product tag</h3>
+<p>Located in: <code>[data-testid=&quot;product-tag&quot;]</code></p>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: Home, Category (Wonen), Moment (Herfst), Product detail
+(Tafellamp jute, Topper traagschuim), Cart (empty)</p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements in the product card:</strong></p>
+<ul>
+<li><strong>LSC Smart Connect buiten wandlamp - kubus: product tag
+&quot;Superdeal&quot;</strong> (Home, Moment (Herfst), Product detail (Tafellamp
+jute))</li>
+<li><strong>Hanglamp - jute: product tag &quot;Weekactie&quot;</strong> (Home,
+Category (Wonen))</li>
+<li><strong>Ronde hanglamp - smoke mat zwart: product tag
+&quot;Weekactie&quot;</strong> (Home, Category (Wonen), Product detail (Tafellamp
+jute, Topper traagschuim))</li>
+<li><strong>Tafellamp - jute: product tag &quot;Superdeal&quot;</strong> (Home,
+Category (Wonen), Product detail (Topper traagschuim), Cart
+(empty))</li>
+<li><strong>Dino knuffel XXL: product tag &quot;Superdeal&quot;</strong> (Home,
+Product detail (Tafellamp jute))</li>
+<li><strong>Opblaasbaar skelet Halloween: product tag
+&quot;Superdeal&quot;</strong> (Home)</li>
+<li><strong>LSC Smart Connect stekker: product tag &quot;Weekactie&quot;</strong>
+(Home)</li>
+<li><strong>Etro vloerkleed - beige: product tag &quot;Weekactie&quot;</strong>
+(Category (Wonen))</li>
+</ul>
+<p><strong>Elements in the product details:</strong></p>
+<ul>
+<li><strong>Image gallery (section &quot;Images&quot;): product tag
+&quot;Superdeal&quot;</strong> (Product detail (Tafellamp jute))</li>
+<li><strong>Image gallery (section &quot;Images&quot;): product tag &quot;Duurzamere
+keuze&quot;, inside a button</strong> (Product detail (Tafellamp jute))</li>
+<li><strong>Product description (section &quot;Productomschrijving&quot;): product
+tag &quot;Duurzamere keuze&quot;</strong> (Product detail (Tafellamp jute))</li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>&quot;Superdeal&quot; and &quot;Weekactie&quot; tags: Element has insufficient color
+contrast of 2.48 (foreground color: #ffffff, background color: #ff8200,
+font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of
+4.5:1</li>
+<li>&quot;Duurzamere keuze&quot; tags: Element has insufficient color contrast of
+2.63 (foreground color: #ffffff, background color: #00b852, font size:
+10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1</li>
+</ul>
+</section>
+</section>
+<section id="price" class="level3">
+<h3>Price</h3>
+<p>Located in: <code>[data-testid=&quot;product-card-price&quot;]</code></p>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds-1" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: Home, Category (Wonen), Moment (Herfst), Product detail
+(Tafellamp jute, Topper traagschuim), Cart (empty)</p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements in the product card</strong> (whole and fractional
+part of each price):</p>
+<ul>
+<li><strong>LSC Smart Connect buiten wandlamp - kubus: price €
+18,95</strong> (Home, Moment (Herfst), Product detail (Tafellamp
+jute))</li>
+<li><strong>Hanglamp - jute: price € 29,95</strong> (Home, Category
+(Wonen))</li>
+<li><strong>Ronde hanglamp - smoke mat zwart: price € 49,95</strong>
+(Home, Category (Wonen), Product detail (Tafellamp jute, Topper
+traagschuim))</li>
+<li><strong>Tafellamp - jute: price € 29,95</strong> (Home, Category
+(Wonen), Product detail (Topper traagschuim), Cart (empty))</li>
+<li><strong>Dino knuffel XXL: price € 24,95</strong> (Home, Product
+detail (Tafellamp jute))</li>
+<li><strong>Opblaasbaar skelet Halloween: price € 1,99, fractional part
+&quot;99&quot; only</strong> (Home)</li>
+<li><strong>LSC Smart Connect stekker: price € 6,77, fractional part
+&quot;77&quot; only</strong> (Home)</li>
+<li><strong>Etro vloerkleed - beige: price € 59,95</strong> (Category
+(Wonen))</li>
+</ul>
+<p><strong>Elements in the product details:</strong></p>
+<ul>
+<li><strong>Tafellamp - jute: price € 29,95, whole part &quot;29&quot; and
+fractional part &quot;95&quot;</strong> (Product detail (Tafellamp jute))</li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>Product card, whole part: Element has insufficient color contrast of
+2.48 (foreground color: #ff8200, background color: #ffffff, font size:
+36.0pt (48px), font weight: bold). Expected contrast ratio of 3:1</li>
+<li>Product card, fractional part: Element has insufficient color
+contrast of 2.48 (foreground color: #ff8200, background color: #ffffff,
+font size: 21.0pt (28px), font weight: bold). Expected contrast ratio of
+3:1</li>
+<li>Product details, whole part: Element has insufficient color contrast
+of 2.48 (foreground color: #ff8200, background color: #ffffff, font
+size: 72.0pt (96px), font weight: bold). Expected contrast ratio of
+3:1</li>
+<li>Product details, fractional part: Element has insufficient color
+contrast of 2.48 (foreground color: #ff8200, background color: #ffffff,
+font size: 22.5pt (30px), font weight: bold). Expected contrast ratio of
+3:1</li>
+</ul>
+</section>
+<section id="information-is-not-presented-properly" class="level4">
+<h4>Information is not presented properly</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The price component implementation relies on an
+<code>aria-label</code> placed on the containing
+<code>&lt;span&gt;</code> to present the total amount. This has a few
+issues depending on the screenreader being used. A
+<code>aria-label</code> placed on a <code>generic</code> element (like
+<code>&lt;span&gt;</code>) is not allowed according to ARIA. So
+depending on how a screenreader interprets this there are a few
+issues:</p>
+<ol type="1">
+<li>If a screenreader uses the <code>aria-label</code> anyway, the total
+price is announced. But the price per item is not, since the
+<code>aria-label</code> value is a value for the whole container</li>
+<li>If a screenreader ignores the <code>aria-label</code>, all content
+is being read like so: &quot;€ 19,95/st 39 90&quot;. In this case it is not clear
+that <em>39</em> and <em>90</em> refer to the total price.</li>
+</ol>
+<p><strong>How to fix:</strong> The goal is to present all the
+information. A solution could be to use a combination of
+<code>aria-hidden</code> and <code>.sr-only</code> like so:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="dt">&gt;</span>€ 19,95/st<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>€ 19,95 per stuk<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Totaal € 39,90<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> aria-hidden</span><span class="op">=</span><span class="st">&quot;true&quot;</span><span class="dt">&gt;</span>39<span class="dt">&lt;</span><span class="kw">sup</span><span class="dt">&gt;</span>90<span class="dt">&lt;/</span><span class="kw">sup</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+</section>
+<section id="button" class="level3">
+<h3>Button</h3>
+<p>Located in: <code>&lt;span class=&quot;truncate px-1&quot;&gt;</code> inside a
+<code>rounded-full</code> <code>&lt;button&gt;</code> or
+<code>&lt;a&gt;</code></p>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds-2" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: Product detail (Tafellamp jute, Topper traagschuim), Cart, Cart
+(empty), Checkout, Register</p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Add to cart button &quot;Plaats in winkelwagen&quot;</strong>,
+<code>[data-testid=&quot;shop-pdp-add-to-cart-button&quot;]</code> (Product detail
+(Tafellamp jute, Topper traagschuim))</li>
+<li><strong>Submit button &quot;Maak account aan&quot;</strong>,
+<code>[data-testid=&quot;submit-button&quot;]</code> (Register)</li>
+<li><strong>Checkout link &quot;Bestellen&quot;</strong>,
+<code>[data-testid=&quot;order-summary-checkout-button&quot;]</code> (Cart)</li>
+<li><strong>Submit button &quot;Bestellen en betalen&quot;</strong>,
+<code>[data-testid=&quot;checkout-submit-btn&quot;]</code> (Checkout)</li>
+<li><strong>Link &quot;Verder winkelen&quot;</strong>,
+<code>[data-testid=&quot;cart-empty-state-cta&quot;]</code> (Cart (empty))</li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>Orange button (Plaats in winkelwagen on Tafellamp jute, Maak account
+aan): Element has insufficient color contrast of 2.48 (foreground color:
+#ffffff, background color: #ff8200, font size: 12.0pt (16px), font
+weight: normal). Expected contrast ratio of 4.5:1</li>
+<li>Cyan button (Plaats in winkelwagen on Topper traagschuim, Bestellen,
+Bestellen en betalen, Verder winkelen): Element has insufficient color
+contrast of 2.37 (foreground color: #ffffff, background color: #00b6e7,
+font size: 12.0pt (16px), font weight: normal). Expected contrast ratio
+of 4.5:1</li>
+</ul>
+</section>
+</section>
+<section id="form-field" class="level3">
+<h3>Form field</h3>
+<section id="error-messages-are-not-linked-to-their-fields" class="level4">
+<h4>Error messages are not linked to their fields</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When an error appears under a field, the error and the field are not
+programmatically connected. The error appears when the user tabs out of
+the field and into the next one. Thereby skipping over the error.
+Tabbing back into the field will also not reveal the error.</p>
+<p><strong>How to fix:</strong> use <code>aria-invalid=&quot;true&quot;</code> and
+<code>aria-describedby=&quot;error-id&quot;</code> to link the field to the error
+like so:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">input</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  type</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ot">  name</span><span class="op">=</span><span class="st">&quot;email&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  required</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ot">  aria-invalid</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ot">  aria-describedby</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="dt">/&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;email-error&quot;</span><span class="dt">&gt;</span>Voer een geldig e-mailadres in<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+<section id="input-fields-lose-their-focus-indicator-when-they-have-an-error" class="level4">
+<h4>Input fields lose their focus indicator when they have an error</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.7 Focus Visible (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When an input field has an error, the border becomes red. But that
+same border is being used as a focus indicator. Since the error state
+takes precedence, the input field loses its focus indicator</p>
+<p><strong>How to fix:</strong> Use the <code>outline</code> with an
+offset as the focus indicator instead of the border colour. That way the
+border keeps its error colour and the outline is visible when it
+receives focus</p>
+</section>
+<section id="geboortedatum-is-not-a-group" class="level4">
+<h4>Geboortedatum is not a group</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The <code>&lt;label&gt;</code> with &#39;Geboortedag&#39; in it has a
+<code>for=&quot;dateOfBirth&quot;</code> attribute, but the id
+<code>dateOfBirth</code> is not found on the page. Thus it is not linked
+to an input field. The hint about the age restriction is also not
+connected, and thus not announced. When tabbing through the form, this
+text is missed.</p>
+<p><strong>How to fix:</strong> Use a
+<code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;Geboortedatum&lt;/legend&gt;</code>
+to group and link the input fields. Use <code>aria-describedby</code> to
+connect the age restriction field</p>
+</section>
+<section id="date-fields-jump-to-the-next-field-on-their-own" class="level4">
+<h4>Date fields jump to the next field on their own</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 3.2.2 On Input (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>After two digits, the focus moves to the next field without
+explaining this behaviour. A user that is used to tabbing to the next
+field fills in the day field, the focus gets moved to the month field
+and tabs directly to the year field. This leads to confusion</p>
+<p><strong>How to fix:</strong> While describing this behaviour would
+fix the violation, removing the auto-advance feature will give the user
+more control over their flow</p>
+</section>
+<section id="date-fields-use-typenumber" class="level4">
+<h4>Date fields use <code>type=&quot;number&quot;</code></h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>With the <code>type=&quot;number&quot;</code>, the browser provides tools to
+deal with numbers. Like using the up and down arrows to increase /
+decrease the value. In some browsers the mouse wheel or trackpad scroll
+will increase / decrease the value as well. All without it being
+announced.</p>
+<p>GOV.UK, did some research on this topic: <a href="https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/">Why
+the GOV.UK Design System team changed the input type for numbers</a></p>
+<p><strong>How to fix:</strong> Using
+<code>&lt;input type=&quot;text&quot; inputmode=&quot;numeric&quot; autocomplete=&quot;bday-year&quot;&gt;</code></p>
+<ul>
+<li><code>type=&quot;text&quot;</code> will make <code>maxlength</code> work and
+remove the arrow / wheel behaviour</li>
+<li><code>inputmode=&quot;numeric&quot;</code> keeps the number keypad on
+mobile</li>
+</ul>
+</section>
+<section id="password-toggle-does-not-expose-its-state" class="level4">
+<h4>Password toggle does not expose its state</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The label of the showing/hiding of the password never changes when
+the feature is used. There is no <code>aria-pressed</code> indicating
+the current state. A screenreader user can not tell if the password is
+visible or not.</p>
+<p><strong>How to fix:</strong> Use <code>aria-pressed=&quot;true&quot;</code> /
+<code>aria-pressed=&quot;false&quot;</code> to indicate the visibility of the
+password, and update the button text to reflect that</p>
+</section>
+</section>
+<section id="pagination" class="level3">
+<h3>Pagination</h3>
+<p>Located in: <code>[data-testid=&quot;grid-pagination-items&quot;]</code></p>
+<section id="the-links-dont-have-descriptive-labels" class="level4">
+<h4>The links don&#39;t have descriptive labels</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.4 Link Purpose (In Context) (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The labels of links to pages are bare numbers. They don&#39;t describe
+where the link takes the user. Especially since the container does not
+have a label like &#39;Paginering&#39;, the user can not deduce the purpose of
+the link out of context. If the component were to get a descriptive
+label like &#39;Paginering&#39;, the severity would drop, but a proper label is
+advised.</p>
+<p><strong>How to fix:</strong> Add <code>aria-label=&quot;Pagina 2&quot;</code>
+or <code>aria-label=&quot;Volgende pagina&quot;</code> instead of the current
+<code>aria-label=&quot;2&quot;</code> and <code>aria-label=&quot;Volgende&quot;</code>. On
+mobile consider to expand the label to
+<code>aria-label=&quot;Pagina 2 van 9&quot;</code> since there is no indication of
+the total amount of pages.</p>
+</section>
+<section id="the-component-is-not-reachable-via-a-landmark" class="level4">
+<h4>The component is not reachable via a landmark</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The pagination feature is a navigation element but is not marked up
+as such. This not only makes it hard for screenreader users to find
+(they have to tab through the whole page to find it), but because it
+also has no descriptive label, its contents are confusing (bare
+numbers).</p>
+<p>This is not a violation of a WCAG SC per se, but it helps users
+navigate greatly</p>
+<p><strong>How to fix:</strong> Swap the containing
+<code>&lt;div&gt;</code> with
+<code>&lt;nav aria-label=&quot;Paginering&quot;&gt;</code>. Don&#39;t put &#39;navigatie&#39;
+in the name, the <code>&lt;nav&gt;</code> element gets announced as
+such</p>
+</section>
+<section id="the-links-dont-have-a-current-page-indicator" class="level4">
+<h4>The links don&#39;t have a current page indicator</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The current page item in the list is not marked up as such. By
+marking it like the current page it gives the user context about their
+whereabouts. Sighted users get this information through a darker
+outline, background and bold text.</p>
+<p><strong>How to fix:</strong> add <code>aria-current=&quot;true&quot;</code> on
+the <code>&lt;a&gt;</code> element representing the current page</p>
+</section>
+</section>
+<section id="cms-markdown" class="level3">
+<h3>CMS markdown</h3>
+<p>Located in: <code>[data-testid=&quot;cms-markdown&quot;]</code></p>
+<section id="subsections-are-not-headings" class="level4">
+<h4>Subsections are not headings</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Privacy statement</p>
+<p>The sub sections, like &quot;1.1.1 Aankopen en bestellingen in onze
+filialen&quot; and &quot;1.1.2 Camerabewaking&quot; for example, but also &quot;Grote
+orders&quot; and &quot;BTW-bonnen&quot; are marked up as paragraphs
+(<code>&lt;p&gt;</code>). This prevents screenreader users from jumping
+to them via heading navigation. But since they are visually not
+different from the surrounding text, sighted users can scan for them</p>
+<p><strong>How to fix:</strong> Use <code>&lt;h4&gt;</code> for the
+x.x.x titles and <code>&lt;h5&gt;</code> for the unnumbered ones under
+them and style them as headings. Use an <code>&lt;h2&gt;</code> for &quot;Wat
+deze privacyverklaring omvat&quot;</p>
+</section>
+<section id="links-must-be-distinguishable-without-relying-on-color" class="level4">
+<h4>Links must be distinguishable without relying on color</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.1 Use of Color (level A)</strong></p>
+</div>
+<p>Source: manual review, axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/link-in-text-block"><code>link-in-text-block</code></a>)<br />
+Pages: Privacy statement</p>
+<p>Multiple links (the 7 browser links and two email addresses) rely
+only on colour to identify themselves as links.</p>
+<p>axe DevTools reports two more links in
+<code>[data-testid=&quot;markdown-link&quot;]</code> inside
+<code>[data-testid=&quot;markdown-paragraph&quot;]</code>: &quot;Ensure links are
+distinguished from surrounding text in a way that does not rely on
+color&quot;.</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Link &quot;https://business.safety.google/privacy/&quot; under heading
+&quot;1.6. Online adverteren en marketingtechnologieën&quot;</strong></li>
+<li><strong>Link &quot;Onze leden | Europees Comité voor gegevensbescherming&quot;
+under heading &quot;6. Je rechten m.b.t. gegevensbescherming&quot;</strong></li>
+</ul>
+<p>axe DevTools: Fix any of the following:</p>
+<ul>
+<li>The link has insufficient color contrast of 1.21:1 with the
+surrounding text. (Minimum contrast is 3:1, link text: #001489,
+surrounding text: #1a1a1a)</li>
+<li>The link has no styling (such as underline) to distinguish it from
+the surrounding text</li>
+</ul>
+<p><strong>How to fix:</strong> Underline all links in content text.</p>
+</section>
+<section id="lists-are-paragraphs-starting-with---" class="level4">
+<h4>Lists are paragraphs starting with &quot;- &quot;</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Privacy statement</p>
+<p>Content that should be a list is marked up as paragraphs
+(<code>&lt;p&gt;</code>).</p>
+<p><strong>How to fix:</strong> Markup lists with
+<code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> elements</p>
+</section>
+<section id="heading-levels-should-only-increase-by-one" class="level4">
+<h4>Heading levels should only increase by one</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/heading-order"><code>heading-order</code></a>)<br />
+Pages: Privacy statement</p>
+<p>Located in: <code>[data-testid=&quot;markdown-title&quot;]</code></p>
+<p>Ensure the order of headings is semantically correct</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Heading &quot;Action respecteert jouw privacy.&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Heading order
+invalid</p>
+</section>
+</section>
+</section>
+<section id="page-specific-components" class="level2">
+<h2>Page-specific components</h2>
+<section id="home--hero-image" class="level3">
+<h3>Home – hero image</h3>
+<section id="campaign-image-without-alternative-text" class="level4">
+<h4>Campaign image without alternative text</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 1.1.1 Non-text Content (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Home</p>
+<p>The &quot;Super Deals / online only&quot; hero image is hidden from
+screenreader users and marked up as decorative. Because there is text
+inside the image, screenreader users miss that content.</p>
+<p><strong>How to fix:</strong> Add an <code>alt</code> attribute with
+the text content and move it out of the <code>aria-hidden</code>
+container. The SVG background image can stay hidden</p>
+</section>
+<section id="heading-level-1-tijdelijke-deals-is-not-visible-and-might-be-confusing" class="level4">
+<h4>Heading level 1 (Tijdelijke deals) is not visible and might be
+confusing</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Home</p>
+<p>In the Hero image block, there is a heading level 1 with the content:
+&quot;Tijdelijke deals&quot;. Screenreader users find this heading where sighted
+users do not. Instead they are presented with the Super Deals
+graphic.</p>
+<p>This does not violate WCAG 2.4.6 Headings and Labels (AA), because
+the following content lists temporary deals. However, the
+<code>&lt;h1&gt;</code> is often interpreted as the title of the
+document, and as such I interpret it as every item on this page is
+temporary. But looking at the page gives me a different impression.
+Because there are items marked as &quot;Superdeal&quot;, I would expect that the
+<em>deals</em> that are referenced in the page header (<em>Elke maandag
+om 12.00 nieuwe deals</em>) and the countdown block in the middle
+(<em>De deals op de webshop zijn slechts tijdelijk beschikbaar</em>) are
+some of the items available, but not all of them. The way the
+<code>&lt;h1&gt;</code> is positioned seems to indicate otherwise.</p>
+</section>
+</section>
+<section id="home--countdown-banner-new-deals-block" class="level3">
+<h3>Home – countdown banner (New Deals block)</h3>
+<p>Located in: <code>[data-testid=&quot;countdown-banner&quot;]</code></p>
+<section id="the-timer-does-not-get-announced-properly" class="level4">
+<h4>The timer does not get announced properly</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Home</p>
+<p>There is an animation that transitions when a digit changes. This is
+done by adding a lot of digits in the DOM and hiding them outside of
+their container. However, they are still present in the DOM and
+detectable by screenreaders. A screenreader tries to read the counter
+section, finds all digits and reads: 9.876.543.210.</p>
+<p><strong>How to fix:</strong> The proper data is already available in
+the <code>&lt;time&gt;</code> element wrapping everything in the
+<code>datetime</code> attribute.</p>
+<ul>
+<li>Add a <code>&lt;span class=&quot;sr-only&quot;&gt;</code> element with a
+written representation of the time as a child element. Make it fill the
+whole counter area.</li>
+<li>Add <code>inert</code> to each other child element
+(<code>&lt;div&gt;</code>) of the <code>&lt;time&gt;</code> element</li>
+</ul>
+</section>
+<section id="the-new-deals-block-dom-order-does-not-match-its-visual-placement" class="level4">
+<h4>The New Deals block DOM order does not match its visual
+placement</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Home</p>
+<p>The New Deals block in the DOM is different from its visual location.
+That means that when a keyboard user tabs through the page, the
+<code>Bekijk alle nieuwe deals</code> button is the first element they
+land on instead of the first item in the list. Because this block is far
+below the viewport, the whole viewport changes when tabbing into it. Not
+only are first items skipped (12 on desktop, 6 on mobile), any visual
+reference is lost. When the user tabs again (out of the button onto the
+next interactive element), they land on the first item in the list.
+Because of that the whole viewport changes again.</p>
+<p><strong>How to fix:</strong> Put the banner in the DOM where it sits
+visually on the page.</p>
+</section>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds-3" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: Home</p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Heading &quot;Elke maandag 12.00 uur nieuwe deals&quot;</strong></li>
+<li><strong>Countdown tile &quot;dagen&quot;</strong></li>
+<li><strong>Countdown tile &quot;uren&quot;</strong></li>
+<li><strong>Countdown tile &quot;minuten&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following:</p>
+<ul>
+<li>Heading: Element has insufficient color contrast of 2.37 (foreground
+color: #ffffff, background color: #00b6e7, font size: 24.0pt (32px),
+font weight: bold). Expected contrast ratio of 3:1</li>
+<li>Countdown tiles: Element has insufficient color contrast of 2.79
+(foreground color: #ffffff, background color: #00a6de, font size: 9.0pt
+(12px), font weight: normal). Expected contrast ratio of 4.5:1</li>
+</ul>
+</section>
+</section>
+<section id="product-grid--filters" class="level3">
+<h3>Product grid – filters</h3>
+<p>Located in: <code>[data-testid=&quot;grid-filters-desktop&quot;]</code></p>
+<section id="results-not-announced-after-filtering" class="level4">
+<h4>Results not announced after filtering</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 4.1.3 Status Message (level AA)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Category (Wonen)</p>
+<p>When a user uses the filter feature, the change in items on the page
+is not announced. On the top there is a total amount to results text,
+but that is not read out when the filters change. Because there is also
+not a page refresh, screenreader users or users that zoom the page are
+not aware that their actions had an effect</p>
+<p><strong>How to fix:</strong> announce the change in results in a
+<code>role=&quot;status&quot;</code> region. See the <a href="https://www.w3.org/WAI/WCAG22/Techniques/aria/ARIA22">Using
+<code>role=status</code> to present status messages</a> Technique for an
+example. This should be done for the total amount of items but also the
+amount of active filters.</p>
+</section>
+<section id="focus-is-lost-after-removing-active-filter-clicking-bekijk-meer-and-closing-the-mobile-filter-dialog" class="level4">
+<h4>Focus is lost after removing active filter, clicking &#39;Bekijk meer&#39;
+and closing the mobile filter dialog</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Category (Wonen)</p>
+<p>When an active filter is removed, the focus is lost. By default that
+focus ends up on the <code>&lt;body&gt;</code> which means that the next
+<code>tab</code> press will be at the bottom of the document.</p>
+<p><strong>How to fix:</strong> When the filter list is being rerendered
+while the focus was inside of the filter list, the focus need to be
+preserved. This does happen when one of the filter items is being
+toggled. And when the filter dialog is closed, focus should move back to
+the open button</p>
+</section>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds-4" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: Category (Wonen), Search</p>
+<p>Located in: <code>[data-testid=&quot;grid-filter-item-label&quot;]</code></p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements:</strong> the count after each filter option, for
+example <strong>Filter &quot;Prijs&quot;, option &quot;Tot € 20&quot;: count
+&quot;(17)&quot;</strong>.</p>
+<ul>
+<li>Category (Wonen), 26 options:
+<ul>
+<li><strong>Prijs:</strong> Tot € 20, € 20 - 30, € 30 - 40, € 40 - 50, €
+50 en meer</li>
+<li><strong>Merk:</strong> Absolu Chic, Beldray, Briloner, Carmen,
+Emerio, FERM, Hyundai, La Isla Living, Leitz, LSC Smart Connect</li>
+<li><strong>Assortiment:</strong> Bijna uitverkocht</li>
+<li><strong>Kleur:</strong> Grijs, Zwart, Zilver, Wit, Bruin, Rood,
+Beige, Blauw, Brons &amp; koper, Creme</li>
+</ul></li>
+<li>Search, 15 options:
+<ul>
+<li><strong>Prijs:</strong> € 20 - 30, € 40 - 50, € 50 en meer</li>
+<li><strong>Merk:</strong> Airtrack, Combekk, GreenChef, Home
+Essentials, Zwilling</li>
+<li><strong>Assortiment:</strong> Bijna uitverkocht</li>
+<li><strong>Kleur:</strong> Zwart, Blauw, Bruin, Rood, Zilver, Geel</li>
+</ul></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Element has
+insufficient color contrast of 1.87 (foreground color: #b6bec8,
+background color: #ffffff, font size: 10.5pt (14px), font weight:
+normal). Expected contrast ratio of 4.5:1</p>
+</section>
+<section id="active-filter-pill-name-does-not-state-its-purpose" class="level4">
+<h4>Active filter pill name does not state its purpose</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.1.1 Non-text Content (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Category (Wonen)</p>
+<p>The filter pill is a button that, when pressed, removes the filter.
+This purpose is not stated in the button label. A sighted user sees the
+<code>x</code> and takes its meaning from that cue. But a screenreader
+user only hears the label of the filter.</p>
+<p><strong>How to fix:</strong> Either add an
+<code>aria-label=&quot;Verwijder filter: Tot € 20&quot;</code> to the
+<code>&lt;button&gt;</code> element. Or include a hidden text inside the
+button. It is advised that the purpose is stated before the filter name,
+so <code>Verwijder filter: Tot € 20</code> instead of
+<code>Tot € 20 Verwijderen filter</code>. In the last case the user
+needs to hear the whole label before the purpose is clear.</p>
+</section>
+<section id="heading-levels-should-only-increase-by-one-1" class="level4">
+<h4>Heading levels should only increase by one</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: manual review, axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/heading-order"><code>heading-order</code></a>)<br />
+Pages: Category (Wonen), Search</p>
+<p>The heading structure can be improved to help navigating the page
+better. The <code>Filter</code> is a heading level 3, the same as the
+headings for the filter sections like <code>Prijs</code> and
+<code>Merk</code>. Visually, and conceptually, the <code>Prijs</code>
+and <code>Merk</code> headings are nested below the <code>Filter</code>,
+but the markup does not describe it like that. Also, the product list
+does not have a heading. This is not an issue for sighted users, but
+users navigating by headings might miss the whole list since there
+<em>are</em> headings for <code>Wonen</code>, <code>Gordijnen</code>,
+<code>Vloerkleden</code>, <code>Leuke meubels...</code> and more.</p>
+<p>axe DevTools reports the <code>Filter</code> heading in
+<code>[data-testid=&quot;grid-filters-group-title&quot;]</code> inside
+<code>[data-testid=&quot;grid-filters-desktop&quot;]</code>: &quot;Ensure the order of
+headings is semantically correct&quot;.</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Heading &quot;Filter&quot;</strong> (Category (Wonen), Search)
+<ul>
+<li>How to fix: Fix any of the following: Heading order invalid</li>
+</ul></li>
+</ul>
+<p><strong>How to fix:</strong></p>
+<ul>
+<li>Make the <code>Filter</code> heading a heading level 2</li>
+<li>Add a <code>Beschikbare producten</code> heading level 2 above the
+product list</li>
+</ul>
+</section>
+<section id="labels-can-be-improved" class="level4">
+<h4>Labels can be improved</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Category (Wonen)</p>
+<p>In the filter item, the number of matching items for that item is
+provided in <code>()</code>. For example: <code>Tot € 20 (17)</code>.
+The <code>(17)</code> part is dimmed. A sighted user sees this
+difference between the bold and dimmed text, a screenreader user only
+hears <code>Tot € 20 17</code>. The lack of <code>()</code> add to the
+confusion. The same is true for the amount of active filters next to the
+<code>Filter</code> heading, the <code>Wis alle</code> button and the
+<code>Bekijk meer</code> toggle.</p>
+<p><strong>How to fix:</strong> Include a hidden text providing more
+context to the items:</p>
+<p>For the total products:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Tot € 20 (17 <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Producten<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span>)<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span> </span></code></pre></div>
+<p>For the active filters:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h3</span><span class="dt">&gt;</span>Filter <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>1 <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>actief<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">h3</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>For the <em>Wis alle</em> button:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="dt">&gt;</span>Wis alle <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>filters<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>For the <em>Bekijk meer</em> button:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="dt">&gt;</span>Bekijk meer <span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Merk filters<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+</section>
+<section id="product-details" class="level3">
+<h3>Product details</h3>
+<p>Located in: <code>[data-testid=&quot;product-details&quot;]</code></p>
+<section id="heading-levels-should-only-increase-by-one-2" class="level4">
+<h4>Heading levels should only increase by one</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: manual review, axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/heading-order"><code>heading-order</code></a>)<br />
+Pages: Product detail (Tafellamp jute, Topper traagschuim, Contactgrill
+XL)</p>
+<p>The headings <code>Beschrijving</code>, <code>Specificaties</code>
+and <code>Verzenden &amp; Retourneren</code> are marked up as a heading
+level 3. But there is no heading level 2 between them and the page
+title.</p>
+<p>axe DevTools reports the <code>Beschrijving</code> heading in
+<code>[data-testid=&quot;accordion-container&quot;]</code> inside
+<code>[data-testid=&quot;shop-product-information&quot;]</code>: &quot;Ensure the order
+of headings is semantically correct&quot;.</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Heading &quot;Beschrijving&quot;</strong> (Product detail (Tafellamp
+jute, Topper traagschuim, Contactgrill XL))
+<ul>
+<li>How to fix: Fix any of the following: Heading order invalid</li>
+</ul></li>
+</ul>
+<p><strong>How to fix:</strong> The containing section has
+<code>aria-label=&quot;Productomschrijving&quot;</code>. Instead of using aria
+label here, add a <code>&lt;h2&gt;</code> and use that to label the
+section like so:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">section</span><span class="ot"> aria-labelledby</span><span class="op">=</span><span class="st">&quot;productdescription-label&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;productdescription-label&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Productomschrijving<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>This can also be applied to the <code>Images</code> section, making
+it easier to find via headings</p>
+</section>
+</section>
+<section id="product-details--variation-chooser" class="level3">
+<h3>Product details – variation chooser</h3>
+<p>Located in: <code>[data-testid=&quot;color-variant-chip&quot;]</code> and
+<code>[data-testid=&quot;size-variant-chip&quot;]</code></p>
+<section id="current-variation-is-only-visually-indicated" class="level4">
+<h4>Current variation is only visually indicated</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 4.1.2 Name, Role, Value (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Product detail (Vloerkleed Tenerife taupe)</p>
+<p>The product variations are links to different pages. The currently
+selected variant is given an outline. But programmatically it is not
+identified as such. As a further complication, the current variation is
+a button, instead of a link.</p>
+<p><strong>How to fix:</strong> Make the current variation a link as
+well and add <code>aria-current=&quot;page&quot;</code> to it.</p>
+</section>
+<section id="variants-should-be-marked-up-as-a-list" class="level4">
+<h4>Variants should be marked up as a list</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Product detail (Vloerkleed Tenerife taupe)</p>
+<p>The list of variants is not marked up as being a list. Because of
+this, a screenreader user does not get additional information like how
+many variants there are available, or have the ability to skip over the
+list entirely</p>
+<p><strong>How to fix:</strong> Instead of the current
+<code>div</code>s, use <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>
+elements.</p>
+</section>
+</section>
+<section id="product-details--duurzamere-keuze-info-block" class="level3">
+<h3>Product details – Duurzamere keuze info block</h3>
+<p>Located in:
+<code>[data-testid=&quot;shop-sustainability-block&quot;]</code></p>
+<section id="lees-meer-cannot-be-operated-with-the-keyboard" class="level4">
+<h4>&quot;Lees meer&quot; cannot be operated with the keyboard</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 2.1.1 Keyboard (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Product detail (MGO bijzettafel)</p>
+<p>The &quot;Lees meer&quot; control expands the sustainability block. It is an
+<code>&lt;a&gt;</code> without an <code>href</code>, so it cannot
+receive keyboard focus. While the block is collapsed, the links inside
+it have <code>tabindex=&quot;-1&quot;</code>. Only after expanding do they get
+<code>tabindex=&quot;0&quot;</code>. Keyboard users, thus, can not expand the
+block or reach its links.</p>
+<p><strong>How to fix:</strong> Replace the <code>&lt;a&gt;</code> with
+a <code>&lt;button&gt;</code> element. Not only is this the semantically
+correct element, it always receives keyboard focus.</p>
+</section>
+</section>
+<section id="product-details--images-carousel" class="level3">
+<h3>Product details – images carousel</h3>
+<p>Located in: <code>section[aria-label=&quot;Images&quot;]</code></p>
+<section id="images--thumbnails-in-the-carousel-do-not-have-a-proper-alt-attribute" class="level4">
+<h4>Images / thumbnails in the carousel do not have a proper alt
+attribute.</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.1.1 Non-text Content (level A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The small images below the main image all have an
+<code>alt=&quot;Navigate to image&quot;</code> attribute. The <code>alt</code>
+attribute should be used to describe the image.</p>
+<p><strong>How to fix:</strong> Give a description of the image in the
+alt text</p>
+</section>
+<section id="thumbnail-buttons-all-have-identical-names" class="level4">
+<h4>Thumbnail buttons all have identical names</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>Each button has the same name, making it hard to tell the individual
+buttons apart</p>
+<p><strong>How to fix:</strong> Use a more descriptive name like so:
+<code>aria-label=&quot;Toon afbeelding 2 van 6&quot;</code> on the button
+element</p>
+</section>
+<section id="the-selected-thumbnail-is-only-indicated-visually" class="level4">
+<h4>The selected thumbnail is only indicated visually</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 4.1.2 Name, Role, Value (level
+A)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The current selected thumbnail gets only an outline. Screenreader
+users do not know which item is active. Making it harder to
+navigate.</p>
+<p><strong>How to fix:</strong> Add <code>aria-current=&quot;true&quot;</code> to
+the button element</p>
+</section>
+<section id="container-label-does-not-match-page-language" class="level4">
+<h4>Container label does not match page language</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 3.1.2 Language of Parts (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The region has an <code>aria-label=&quot;Images&quot;</code> attribute without
+an <code>lang=&quot;en&quot;</code> attribute to indicate that its label should be
+pronounced differently. See the heading structure for the
+<em>Productomschrijving</em> for a method of improving the label
+further.</p>
+<p><strong>How to fix:</strong> Include a <code>lang=&quot;en&quot;</code> to the
+section element</p>
+<p><strong>How to improve:</strong> Rename the <code>aria-label</code>
+value to: <code>Afbeeldingen</code>. Or improve the label further by
+using a <code>&lt;h2&gt;</code> as its label and making the images
+discoverable via heading navigation as well like so:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">section</span><span class="ot"> aria-labelledby</span><span class="op">=</span><span class="st">&quot;images-label&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h2</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;images-label&quot;</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;sr-only&quot;</span><span class="dt">&gt;</span>Afbeeldingen<span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">section</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+<section id="thumbnails-should-be-marked-up-as-a-list" class="level4">
+<h4>Thumbnails should be marked up as a list</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The row of thumbnails is not identified as being a list. Because of
+this, a screenreader user does not get additional information like how
+many items there are in the list, or has the ability to skip over the
+list entirely</p>
+<p><strong>How to fix:</strong> Instead of the current
+<code>div</code>s, use <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>
+elements.</p>
+</section>
+</section>
+<section id="cart--winkelmand-item" class="level3">
+<h3>Cart – winkelmand item</h3>
+<p>Located in: <code>[data-testid=&quot;cart-line-item&quot;]</code></p>
+<section id="max-amount-per-order-reached-is-not-announced" class="level4">
+<h4>Max amount per order reached is not announced</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 4.1.3 Status Messages (level AA)</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When an item reaches its maximum amount, this is not announced. The
+result is that the add buttons stops working without notification</p>
+<p><strong>How to fix:</strong> use the same mechanism that is used in a
+product card on an overview page. There it is being announced.</p>
+</section>
+<section id="link-should-be-a-heading" class="level4">
+<h4>Link should be a heading</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The link to a product should be marked up as a heading level 2. That
+way it is more clear to the user that the following interactive elements
+belong to the product.</p>
+<p><strong>How to fix:</strong> Markup the link like so:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;...&quot;</span><span class="dt">&gt;</span>Topper traagschuim matras 90 x 200<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">h2</span><span class="dt">&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>90 x 200 cm<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+<section id="announcement-of-changing-amount-of-products-can-be-improved" class="level4">
+<h4>Announcement of changing amount of products can be improved</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>When there are products added or removed only the new number is
+announced without much context.</p>
+<p><strong>How to fix:</strong> Add one shared status region in which
+content gets updated on every change</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">span</span><span class="ot"> role</span><span class="op">=</span><span class="st">&quot;status&quot;</span><span class="dt">&gt;</span>Topper traagschuim matras: aantal 2. Totaal € 270,49<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span></code></pre></div>
+</section>
+<section id="link-contains-subtext" class="level4">
+<h4>Link contains subtext</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>The link to a product contains the sub text of the product. This
+leads to unnecessary long links with potential duplicate content.</p>
+<p><strong>How to fix:</strong> Only put the title of the product in an
+<code>&lt;a&gt;</code> element.</p>
+</section>
+<section id="disabled-add-button-should-be-described" class="level4">
+<h4>Disabled add button should be described</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review</p>
+<p>Some products have a limit on how much of them can be ordered. When
+that limit is reached, the add button gets disabled. There is text
+describing why it is disabled, but that text is not connected to the
+button, making it hard to understand why the button is disabled.</p>
+<p><strong>How to fix:</strong> Consider this markup:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ot">  aria-label</span><span class="op">=</span><span class="st">&quot;één product toevoegen&quot;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ot">  aria-describedby</span><span class="op">=</span><span class="st">&quot;xyz&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ot">  aria-disabled</span><span class="op">=</span><span class="st">&quot;true&quot;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&gt;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">svg</span><span class="dt">&gt;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">p</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;xyz&quot;</span><span class="dt">&gt;</span>Je hebt het max. van 2 items per bestelling bereikt<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span></code></pre></div>
+<p>The <code>aria-describedby</code> references the reason, and using
+<code>aria-disabled</code> over <code>disabled</code> makes sure that
+the button keeps being focusable. Even with <code>tabindex=&quot;0&quot;</code>,
+the button will not be focusable.</p>
+</section>
+</section>
+<section id="checkout" class="level3">
+<h3>Checkout</h3>
+<p>Located in: <code>[data-testid=&quot;checkout-layout&quot;]</code></p>
+<section id="no-announcement-of-payment-provider-error-or-address-error" class="level4">
+<h4>No announcement of payment provider error or address error</h4>
+<div class="severity severity-blocker">
+<p><strong>Blocker - WCAG 3.3.1 Error Identification (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>When there is no payment provider or delivery address selected and
+the form is submitted, there is no input field to focus. So the focus is
+lost. And although an error message is shown, that error is not
+announced.</p>
+<p><strong>How to fix:</strong> This issue is quite similar to the &quot;No
+announcement after submit&quot; issue, as is its fix. Announce that the error
+has occurred</p>
+</section>
+<section id="no-announcement-after-submit" class="level4">
+<h4>No announcement after submit</h4>
+<div class="severity severity-critical">
+<p><strong>Critical - WCAG 3.3.1 Error Identification (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>After a submit of the payment button, while there are errors on the
+page, the payment submit fails. The focus is moved to the first field
+with an error message. But the fact that the submit failed is not
+announced. Together with the &quot;Error messages are not linked to their
+fields&quot; issue in the Form field component, the user does not know that
+an error has occurred, or how it can be fixed.</p>
+<p><strong>How to fix:</strong> Although not required according to WCAG,
+a summary of what went wrong with links to the fields with an error
+would be the best solution. A minimal fix is to announce that the submit
+was not successful.</p>
+</section>
+<section id="back-to-cart-button-does-not-have-a-name-on-mobile" class="level4">
+<h4>Back to cart button does not have a name on mobile</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 2.4.4 Link Purpose (In Context) (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>On a small screen the text <em>Ga naar winkelmand</em> is hidden via
+<code>display:none</code>. This removes it from the accessibility tree
+and thus, the link has no text.</p>
+<p><strong>How to fix:</strong> use
+<code>aria-label=&quot;Ga naar winkelmand&quot;</code> on the
+<code>&lt;a&gt;</code> element</p>
+</section>
+<section id="information-about-the-privacy-statement-and-terms-and-conditions-comes-after-the-submit-button" class="level4">
+<h4>Information about the privacy statement and terms and conditions
+comes after the submit button.</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>Someone reading the page from top to bottom reaches the order button
+before the links to the terms and conditions, privacy statement and
+newsletter signup. Making it easy to miss them.</p>
+<p><strong>How to fix:</strong> Move them above the submit button</p>
+</section>
+<section id="main-landmark-should-not-be-contained-in-another-landmark" class="level4">
+<h4>Main landmark should not be contained in another landmark</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/landmark-main-is-top-level"><code>landmark-main-is-top-level</code></a>)<br />
+Pages: Checkout</p>
+<p>Located in: <code>[data-testid=&quot;checkout-layout&quot;]</code></p>
+<p>Ensure the main landmark is at top level</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Checkout main</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: The main
+landmark is contained in another landmark.</p>
+</section>
+<section id="document-should-not-have-more-than-one-main-landmark" class="level4">
+<h4>Document should not have more than one main landmark</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/landmark-no-duplicate-main"><code>landmark-no-duplicate-main</code></a>)<br />
+Pages: Checkout</p>
+<p>Ensure the document has at most one main landmark</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Page main <code>#layout-page-content</code></strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Document has
+more than one main landmark</p>
+</section>
+<section id="landmarks-should-have-a-unique-role-or-rolelabeltitle-ie-accessible-name-combination" class="level4">
+<h4>Landmarks should have a unique role or role/label/title (i.e.
+accessible name) combination</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/landmark-unique"><code>landmark-unique</code></a>)<br />
+Pages: Checkout</p>
+<p>Ensure landmarks are unique</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Page main <code>#layout-page-content</code></strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: The landmark
+must have a unique aria-label, aria-labelledby, or title to make
+landmarks distinguishable</p>
+</section>
+</section>
+<section id="checkout--delivery-address" class="level3">
+<h3>Checkout – delivery address</h3>
+<p>Located in: <code>[data-testid=&quot;delivery-address&quot;]</code></p>
+<section id="autocomplete-attribute-must-be-used-correctly" class="level4">
+<h4>autocomplete attribute must be used correctly</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.3.5 Identify Input Purpose (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/autocomplete-valid"><code>autocomplete-valid</code></a>)<br />
+Pages: Checkout</p>
+<p>Ensure the autocomplete attribute is correct and suitable for the
+form field</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Input &quot;Adres&quot; (<code>street-input</code>)</strong></li>
+<li><strong>Input &quot;Postcode&quot;
+(<code>postalcode-input</code>)</strong></li>
+<li><strong>Input &quot;Plaats&quot; (<code>city-input</code>)</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix all of the following: the
+autocomplete attribute is incorrectly formatted</p>
+<blockquote>
+<p><strong>Reviewer note:</strong> <code>do-not-autofill</code> is not a
+valid <code>autocomplete</code> value. Use the input purpose tokens
+instead: <code>address-line1</code> for &quot;Adres&quot; (single-line street
+address; <code>street-address</code> is meant for a multi-line field),
+<code>postal-code</code> for &quot;Postcode&quot; and <code>address-level2</code>
+for &quot;Plaats&quot;. See <a href="https://www.w3.org/TR/WCAG21/#input-purposes">WCAG 2.1, Input
+Purposes for User Interface Components</a>.</p>
+<p><code>do-not-autofill</code> may have been chosen to keep browser
+autofill from interfering with the address lookup on &quot;Adres&quot;
+(<code>role=&quot;combobox&quot;</code>). However, an invalid value is not a
+documented alternative: the HTML spec treats it as having no autofill
+purpose, leaving autofill to the browser&#39;s interpretation (<a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#autofill-processing-model">HTML,
+autofill processing model</a>).</p>
+</blockquote>
+</section>
+<section id="address-lookup-fills-the-postcode-and-plaats-with-a-value-without-announcing-it" class="level4">
+<h4>Address lookup fills the &quot;Postcode&quot; and &quot;Plaats&quot; with a value
+without announcing it</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 4.1.3 Status Message (level AA)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>The fields &quot;Postcode&quot; and &quot;Plaats&quot; are filled in with information
+based on the provided address, this state change is not announced.</p>
+<p><strong>How to fix:</strong> Add a (potentially) hidden
+<code>role=&quot;status&quot;</code> region that announces that these fields are
+filled in based on the Adres field.</p>
+</section>
+<section id="billing-fields-adres-postcode-and-plaats-appear-twice-with-the-same-name" class="level4">
+<h4>Billing fields &quot;Adres&quot;, &quot;Postcode&quot; and &quot;Plaats&quot; appear twice with
+the same name</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>In a list of input fields, the same names appear. That means that
+they can not be told apart.</p>
+<p><strong>How to fix:</strong> Wrap each address in a
+<code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code></p>
+</section>
+</section>
+<section id="checkout--payment-method" class="level3">
+<h3>Checkout – payment method</h3>
+<p>Located in: <code>[data-testid=&quot;checkout-payment-section&quot;]</code></p>
+<section id="payment-provider-section-does-not-meet-expected-radio-group-keyboard-behaviour" class="level4">
+<h4>Payment provider section does not meet expected radio group keyboard
+behaviour</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>Because the payment options feature circles and checkmarks, the
+pattern is recognised (and announced) as a radio button group. However,
+each receive a tabstop and arrow keys do nothing. This can confuse
+keyboard/screenreader users because the interactions differ from normal
+/ expected operation.</p>
+<p><strong>How to fix</strong>: Instead of buttons, use actual
+<code>&lt;input type=&quot;radio&quot; /&gt;</code> elements nested in
+<code>&lt;label&gt;</code> elements.</p>
+</section>
+<section id="payment-provider-heading-should-be-improved" class="level4">
+<h4>Payment provider heading should be improved</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Checkout</p>
+<p>Above the list of payment providers, there is a heading &quot;Betalen&quot;.
+Because the actual payment button sits under the &quot;Je Winkelwagen&quot;
+heading, the heading &quot;Betalen&quot; is confusing because a user can not
+perform the payment action there.</p>
+<p><strong>How to fix:</strong> Use the word &quot;Betaalmethode&quot; or a
+similar phrase instead of &quot;Betalen&quot;</p>
+</section>
+</section>
+<section id="login-form" class="level3">
+<h3>Login form</h3>
+<p>Located in: <code>[data-testid=&quot;login-form&quot;]</code></p>
+<section id="loading-state-is-not-announced" class="level4">
+<h4>Loading state is not announced</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 4.1.3 Status message (level AA)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Login</p>
+<p>When the login button has been clicked, the button changes in a
+spinner. A sighted user gets feedback that something is happening, but a
+screenreader user does not. The change of the state is not announced</p>
+<p><strong>How to fix:</strong> When the user clicks on the button
+announce the state change in a <code>role=&quot;status&quot;</code> region, or
+change the name of the button with a hidden text</p>
+</section>
+<section id="link-has-confusing-text-out-of-context" class="level4">
+<h4>Link has confusing text out of context</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 2.4.4 Link Purpose (In Context) (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Login</p>
+<p>The link &quot;Klik dan hier&quot; in the info panel explaining to view the
+order information without an account is confusing without context. In a
+list of links this link does not explain what it does.</p>
+<p><strong>How to fix:</strong> Use a more descriptive text like &quot;Bekijk
+hier je orderinformatie zonder account&quot;. At a minimum place the link
+inside the paragraph with the explaining text.</p>
+</section>
+</section>
+<section id="forgot-password-form" class="level3">
+<h3>Forgot password form</h3>
+<p>Located in: <code>[data-testid=&quot;forgot-password-form&quot;]</code></p>
+<section id="no-announcement-after-submitting-the-form" class="level4">
+<h4>No announcement after submitting the form</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 4.1.3 Status Message (level AA)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Forgot password</p>
+<p>When the form is submitted, the page content changes, showing a
+message to check the email. But nothing is announced or focus is moved
+to the new content. A screenreader user is not aware of this change</p>
+<p><strong>How to fix:</strong> move the focus to the new
+<code>&lt;h1&gt;</code> element.</p>
+</section>
+</section>
+<section id="algemene-voorwaarden--table-of-contents" class="level3">
+<h3>Algemene voorwaarden – table of contents</h3>
+<p>Located in: <code>[data-testid=&quot;cms-table-of-contents&quot;]</code></p>
+<section id="table-of-contents-hard-to-operate-for-keyboard-users" class="level4">
+<h4>Table of contents hard to operate for keyboard users</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 2.4.3 Focus Order (level A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Algemene voorwaarden</p>
+<p>The table of contents is made up of <code>&lt;button&gt;</code>
+elements. Pressing &quot;Artikel 6&quot; scrolls the page and updates the URL
+hash. But the focus stays on the button. When the user presses
+<code>tab</code> again, the page jumps back up to the table of contents.
+Keyboard users can not use the table of contents to navigate the page,
+screenreader users get no feedback that anything happened.</p>
+<p><strong>How to fix:</strong> Use
+<code>&lt;a href=&quot;#artikel-6--herroepingsrecht&quot;&gt;</code> instead of
+<code>&lt;button&gt;</code> elements. The IDs already exist, a native
+browser handling moves the focus to the target element. Put the links in
+<code>&lt;nav aria-label=&quot;Artikelen&quot;&gt;&lt;ul&gt;...&lt;/ul&gt;&lt;/nav&gt;</code></p>
+</section>
+<section id="table-of-contents-titles-are-cut-off-visually" class="level4">
+<h4>Table of contents titles are cut off visually</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Recommendation</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Algemene voorwaarden</p>
+<p>The labels truncate the text with <code>...</code> and there is no
+tooltip. Sighted users, and especially users using magnification, can
+not read where the buttons lead to.</p>
+<p><strong>How to fix:</strong> Let the text wrap.</p>
+</section>
+<section id="english-accessible-name-in-table-of-contents-item" class="level4">
+<h4>English accessible name in Table of Contents item</h4>
+<div class="severity severity-minor">
+<p><strong>Minor - WCAG 3.1.2 Language of Parts (level AA)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Algemene voorwaarden</p>
+<p>Each button in the table of contents has an
+<code>aria-label=&quot;Go to...&quot;</code>. &quot;Go to&quot; is followed by the Dutch
+name of the article. For a screenreader user, these words are pronounced
+in a Dutch voice.</p>
+<p><strong>How to fix:</strong> When the above issue is done, the link
+is announced as being a link. The words &quot;Go to&quot; are then obsolete. The
+whole <code>aria-label</code> can be removed.</p>
+</section>
+</section>
+<section id="cookie-statement--cookie-declaration" class="level3">
+<h3>Cookie statement – cookie declaration</h3>
+<p>Located in: <code>[data-testid=&quot;cookie-declaration&quot;]</code></p>
+<section id="cookie-category-titles-are-not-headings" class="level4">
+<h4>Cookie category titles are not headings</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Cookie statement</p>
+<p>&quot;Strikt noodzakelijke cookies (21)&quot;, &quot;Voorkeurscookies (2)&quot;,
+&quot;Analytische cookies (49)&quot;, &quot;Marketing- en advertentiecookies (78)&quot; and
+&quot;Niet geclassificeerd (2)&quot; are <code>&lt;p&gt;</code> elements. They are
+styled as headings (different colour, different font-weight). They
+function as the title of the tables. These tables have no
+<code>&lt;caption&gt;</code> describing the table. A screenreader user
+can not jump to a category with heading navigation and each table sounds
+the same: &quot;table, 5 columns&quot;. Because the tables cover most of the page
+makes the impact high.</p>
+<p><strong>How to fix:</strong> Use <code>&lt;h3&gt;</code> for the
+titles and use <code>aria-labelledby</code> on the tables to point to
+the heading.</p>
+</section>
+<section id="links-must-be-distinguishable-without-relying-on-color-1" class="level4">
+<h4>Links must be distinguishable without relying on color</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.1 Use of Color (level A)</strong></p>
+</div>
+<p>Source: manual review, axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/link-in-text-block"><code>link-in-text-block</code></a>)<br />
+Pages: Cookie statement</p>
+<p>Multiple links (the 7 browser links in section 5 and email link in
+section 6) rely only on colour to identify themselves as links.</p>
+<p>axe DevTools reports one more link: &quot;Ensure links are distinguished
+from surrounding text in a way that does not rely on color&quot;.</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Link &quot;Cookiebot&quot; in &quot;Cookieverklaring laatst bijgewerkt op
+19/10/2026 door Cookiebot:&quot;</strong></li>
+</ul>
+<p>axe DevTools: Fix any of the following:</p>
+<ul>
+<li>The link has insufficient color contrast of 1.99:1 with the
+surrounding text. (Minimum contrast is 3:1, link text: #001489,
+surrounding text: #505862)</li>
+<li>The link has no styling (such as underline) to distinguish it from
+the surrounding text</li>
+</ul>
+<p><strong>How to fix:</strong> Underline all links in content text.</p>
+</section>
+<section id="list-of-suppliers-is-not-marked-up-as-a-list" class="level4">
+<h4>List of suppliers is not marked up as a list</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - WCAG 1.3.1 Info and Relationships (level
+A)</strong></p>
+</div>
+<p>Source: manual review<br />
+Pages: Cookie statement</p>
+<p>The 22 domains under &quot;Leveranciers gebruikt op onze website&quot; are
+listed as a paragraph with <code>&lt;br&gt;</code> between them.</p>
+<p><strong>How to fix:</strong> Use
+<code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code> to make a proper
+list</p>
+</section>
+<section id="heading-levels-should-only-increase-by-one-3" class="level4">
+<h4>Heading levels should only increase by one</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/heading-order"><code>heading-order</code></a>)<br />
+Pages: Cookie statement</p>
+<p>Located in:
+<code>.CookieDeclaration-module__eQWa__contentStackContent</code></p>
+<p>Ensure the order of headings is semantically correct</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Heading &quot;Data Protection Officer Action&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Heading order
+invalid</p>
+</section>
+</section>
+<section id="404-page" class="level3">
+<h3>404 page</h3>
+<blockquote>
+<p><strong>Reviewer note:</strong> The 404 page uses a different
+template than the rest of the shop (other header, footer and class
+names, no <code>data-testid</code> attributes). Elements are located by
+<code>id</code> and section heading instead.</p>
+</blockquote>
+<section id="elements-must-meet-minimum-color-contrast-ratio-thresholds-5" class="level4">
+<h4>Elements must meet minimum color contrast ratio thresholds</h4>
+<div class="severity severity-serious">
+<p><strong>Serious - WCAG 1.4.3 Contrast (Minimum) (level
+AA)</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/color-contrast"><code>color-contrast</code></a>)<br />
+Pages: 404</p>
+<p>Located in: section &quot;Altijd als eerste op de hoogte&quot;</p>
+<p>Ensure the contrast between foreground and background colors meets
+WCAG 2 AA minimum contrast ratio thresholds</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Newsletter link &quot;Inschrijven voor nieuwsbrief&quot;</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix any of the following: Element has
+insufficient color contrast of 2.48 (foreground color: #ffffff,
+background color: #ff8200, font size: 12.0pt (16px), font weight:
+normal). Expected contrast ratio of 4.5:1</p>
+</section>
+<section id="page-should-contain-a-level-one-heading" class="level4">
+<h4>Page should contain a level-one heading</h4>
+<div class="severity severity-moderate">
+<p><strong>Moderate - Best Practice</strong></p>
+</div>
+<p>Source: axe DevTools (<a href="https://dequeuniversity.com/rules/axe/4.13/page-has-heading-one"><code>page-has-heading-one</code></a>)<br />
+Pages: 404</p>
+<p>Located in: <code>html</code></p>
+<p>Ensure that the page, or at least one of its frames contains a
+level-one heading</p>
+<p><strong>Elements:</strong></p>
+<ul>
+<li><strong>Document</strong></li>
+</ul>
+<p><strong>How to fix:</strong> Fix all of the following: Page must have
+a level-one heading</p>
+<blockquote>
+<p><strong>Reviewer note:</strong> The page title &quot;Oeps! We konden niet
+vinden wat je zocht...&quot; is marked up as an <code>&lt;h4&gt;</code>. All
+other headings on the page are <code>&lt;h4&gt;</code> as well. Making
+the page title the <code>&lt;h1&gt;</code> fixes this issue.</p>
+</blockquote>
+</section>
+</section>
+</section>
+</body>
+</html>
